@@ -1,4 +1,4 @@
-# [SA-MP] Project SiRoP - это..
+# [SA-MP] Good SiRoP - это..
 Игровой режим **Si**mulator и **Ro**le **P**lay с открытым исходным кодом
 
 * Динамическая экономика
