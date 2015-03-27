@@ -2,7 +2,7 @@ public OnGameModeExit()
 {
     SendRconCommand("unloadfs map");
     // Обновление игроков
-    foreach(new i : Player) CallLocalFunction("OnPlayerDisconnect", "d", i);
+    foreach(new i : Player) CallLocalFunction("OnPlayerDisconnect", "dd", i,1);
 	// Обновление конфигурации
 	new INI: txtfile = INI_Open("budget.ini");
 	INI_WriteFloat(txtfile, "Government", Budget_GOVERNMENT);
