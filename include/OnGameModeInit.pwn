@@ -19,7 +19,7 @@ public OnGameModeInit()
 	// Параметры игрового режима
 	SetGameModeText(GAMEMODE_VERSION);
 	SetMaxConnections(1);
-	ShowNameTags(0);
+	ShowNameTags(1);
 	ShowPlayerMarkers(0);
 	EnableStuntBonusForAll(0);
 	DisableNameTagLOS();
