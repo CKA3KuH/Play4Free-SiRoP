@@ -9,6 +9,7 @@ public OnPlayerText(playerid, text[])
 	strtolower(text);
 	format(P[playerid][_p_chat_msg], 128, text);
 	SetPlayerChatBubble(playerid, text, 0xFFFFFFFF, 35.0, 5000);
+	ApplyAnimation(playerid, "ped", "IDLE_chat", 4.1, 0, 1,1, 0, 0, 1);
 	new Float: x, Float: y, Float: z;
 	GetPlayerPos(playerid, x,y,z);
 	foreach(new i : Player) {

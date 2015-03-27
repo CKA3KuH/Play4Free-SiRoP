@@ -85,6 +85,7 @@ CMD:s(playerid, params[])
 	new Float:x, Float:y, Float:z;
 	GetPlayerPos(playerid, x,y,z);
 	SetPlayerChatBubble(playerid, params, 0xFFFF00FF, 70.0, 5000);
+	ApplyAnimation(playerid, "RIOT", "RIOT_shout", 4.1, 0, 1,1, 0, 0, 1);
 	foreach(new i : Player) {
 	    if(P[i][_p_in_game] == false) continue;
 	    if(!IsPlayerInRangeOfPoint(i, 70.0, x,y,z)) continue;
