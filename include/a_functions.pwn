@@ -183,9 +183,7 @@ stock Vehicle_Add(model, Float:x, Float:y, Float:z, Float:angle, color1 = (-1), 
 
 	if(vehicleid == INVALID_VEHICLE_ID) return vehicleid;
 
-	new string[32];
-	format(string, sizeof(string), "GTO %d%03d SA", random(9),vehicleid);
-	SetVehicleNumberPlate(vehicleid, string);
+	SetVehicleNumberPlate(vehicleid, "P4F SiRoP");
 	V[vehicleid][v_fuel] = Vehicle_GetMaxFuel(model);
 	Iter_Add(Vehicle, vehicleid);
 	return vehicleid;
@@ -259,7 +257,7 @@ stock IC_Me(playerid, action[])
 	GetPlayerPos(playerid, x,y,z);
 	SetPlayerChatBubble(playerid, action, 0xDDA0DDFF, 35.0, 5000);
 	foreach(new i : Player) {
-	    if(P[i][_p_in_game] == false) continue;
+	    if(!P[i][_p_in_game]) continue;
 	    if(!IsPlayerInRangeOfPoint(i, 35.0, x,y,z)) continue;
 	    if(GetPlayerVirtualWorld(i) != GetPlayerVirtualWorld(playerid)) continue;
 	    if(GetPlayerInterior(i) != GetPlayerInterior(playerid)) continue;
@@ -271,38 +269,37 @@ stock IC_Me(playerid, action[])
 stock Message_ToAll(color, const fmat[], va_args<>)
 {
 	foreach(new i : Player) {
-		if(P[i][_p_in_game] == false) continue;
+		if(!P[i][_p_in_game]) continue;
 		SendClientMessage(i, color, va_return(fmat, va_start<2>));
 	}
 }
 
 stock containsAnyIP(const string[])
 {
-    new digits, digitGroups;
-    for ( new pos; ; pos++ ) {
-        switch ( string[pos] ) {
-            case 0 : break;
-            case '0'..'9', 'o', 'O', 'о', 'О', 'з', 'З' : digits++;
-            default : {
-                if ( digits >= 2 ) {
-                    digitGroups++;
-                    digits = 0;
-                }
-            }
-        }
-    }
-    if ( digits >= 2 ) digitGroups++;
-    if ( digitGroups >= 4 ) return 1;
-
-    return 0;
+	new digits, digitGroups;
+	for(new pos; ; pos++) {
+		switch(string[pos]) {
+			case 0: break;
+			case '0'..'9', 'o', 'O', 'о', 'О', 'з', 'З': digits++;
+			default: {
+				if(digits >= 2) {
+					digitGroups++;
+					digits = 0;
+				}
+			}
+		}
+	}
+	if(digits >= 2) digitGroups++;
+	if(digitGroups >= 4) return 1;
+	return 0;
 }
 
 stock strtolower(source[])
 {
 	for(new i; i < strlen(source); i++) switch(source[i]) {
-	    case 168: source[i] = 184;
-	    case 192..223: source[i] = (source[i] + 32);
-	    default: source[i] = tolower(source[i]);
+		case 168: source[i] = 184;
+		case 192..223: source[i] = (source[i] + 32);
+		default: source[i] = tolower(source[i]);
 	}
 }
 
@@ -405,7 +402,7 @@ stock Armour_Sync(playerid)
 stock Speedo_Sync(playerid)
 {
     new engine,lights,alarm,doors,bonnet,boot,objective;
-	new string[102],str_E[7],str_L[7],str_D[10];
+	new string[102],str_E[5],str_L[5],str_D[5];
 	new vehicleid = GetPlayerVehicleID(playerid);
 	new KMH = Vehicle_Speed(vehicleid);
 	GetVehicleParamsEx(vehicleid, engine,lights,alarm,doors,bonnet,boot,objective);
@@ -414,18 +411,7 @@ stock Speedo_Sync(playerid)
 			str_E = "~r~E";
 			KMH = 0;
 		}
-	    case 1: {
-			str_E = "~g~E";
-			switch(KMH) {
-	    		case 1..6: V[vehicleid][v_fuel] -= 0.0001;
-	    		case 7..26: V[vehicleid][v_fuel] -= 0.0002;
-	    		case 27..51: V[vehicleid][v_fuel] -= 0.0003;
-	    		case 52..101: V[vehicleid][v_fuel] -= 0.0004;
-	    		case 102..151: V[vehicleid][v_fuel] -= 0.0005;
-	    		case 152..221: V[vehicleid][v_fuel] -= 0.0006;
-	    		default: if(KMH != 0) V[vehicleid][v_fuel] -= 0.001;
-	        }
-	    }
+	    case 1: str_E = "~g~E";
 	}
 	switch(lights) {
 	    case -1,0: str_L = "~r~L";
@@ -436,13 +422,7 @@ stock Speedo_Sync(playerid)
 	    case 1: str_D = "~r~D";
 	}
 	switch(Vehicle_WithoutFuel(GetVehicleModel(vehicleid))) {
-		case 0: {
-			format(string, sizeof(string), "~w~%d ~b~KM/H~n~FUEL: ~w~%.1f~n~%s %s %s", KMH,V[vehicleid][v_fuel],str_E,str_L,str_D);
-			if(V[vehicleid][v_fuel] <= 0) {
-	            SetVehicleParamsEx(vehicleid, 0,lights,alarm,doors,bonnet,boot,objective);
-	            SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}В вашем автомобиле закончилось топливо!");
-	        }
-		}
+		case 0: format(string, sizeof(string), "~w~%d ~b~KM/H~n~FUEL: ~w~%.0f~n~%s %s %s", KMH,V[vehicleid][v_fuel],str_E,str_L,str_D);
 		case 1: format(string, sizeof(string), "~w~%d ~b~KM/H~n~%s %s %s", KMH,str_E,str_L,str_D);
 	}
 	PlayerTextDrawSetString(playerid, P[playerid][_p_speedo], string);

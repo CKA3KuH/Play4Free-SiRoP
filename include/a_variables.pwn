@@ -1,7 +1,7 @@
 #define GAMEMODE_VERSION    "P4F SiRoP 0.4.0"
 #define SERVER_NAME         "Play4Free Simulator/RolePlay"
 
-#define FUEL_TANK_LIMIT			25000.0
+#define FUEL_TANK_LIMIT			25000
 
 #define MOVE_GATE_SPEED     	3.0
 #define MOVE_BARRIER_SPEED  	0.2
@@ -87,7 +87,7 @@ enum E_PETROL_STATIONS_DATA {
 	// mysql synced
 	ps_uid,
 	ps_name[30],
-	Float: ps_volume,
+	ps_volume,
 	ps_owner,
 	Float: ps_profit,
 	Float: ps_pos_x,

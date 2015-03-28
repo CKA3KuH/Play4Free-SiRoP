@@ -111,7 +111,7 @@ switch(dialogid) {
 		    case 5: {
 		        new string[512];
 		        for(new i; i < sizeof(Streams); i++) strcat(string, Streams[i][0]);
-		        ShowPlayerDialog(playerid, 8, DIALOG_STYLE_TABLIST, "Автомобильное радио", string, "Выбор","Отмена");
+		        ShowPlayerDialog(playerid, 8, DIALOG_STYLE_LIST, "Автомобильное радио", string, "Выбор","Отмена");
 		    }
 		    // отцепить трейлер
 		    case 6: DetachTrailerFromVehicle(vehicleid);

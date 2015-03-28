@@ -112,7 +112,7 @@ ptask OnPlayerCashSync[1000](playerid)
 		Budget_GOVERNMENT = floatadd(Budget_GOVERNMENT, a);
 	}
 	else if(GetPlayerMoney(playerid) > floatround(P[playerid][p_cash])) {
-		printf("[Г‡Г Г№ГЁГІГ ]: ГЌГ ГЄГ°ГіГІГЄГ  Г¤ГҐГ­ГҐГ¦Г­Г»Гµ Г±Г°ГҐГ¤Г±ГІГў - %s[%d] | C: %d / S: %d",
+		printf("[Защита]: Накрутка денежных средств - %s[%d] | C: %d / S: %d",
 			Name(playerid),playerid,GetPlayerMoney(playerid),floatround(P[playerid][p_cash]));
 	    ResetPlayerMoney(playerid);
 	    GivePlayerMoney(playerid, floatround(P[playerid][p_cash]));
@@ -122,4 +122,22 @@ ptask OnPlayerCashSync[1000](playerid)
 	format(string, sizeof(string), "%.0f Cent", floatmul(floatfract(P[playerid][p_cash]), 100.0));
 	PlayerTextDrawSetString(playerid, P[playerid][_p_cent], string);
 	return 1;
+}
+
+ptask OnPlayerVehicleFuelSync[1000](playerid)
+{
+	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER) {
+		new vehicleid = GetPlayerVehicleID(playerid);
+		new engine,lights,alarm,doors,bonnet,boot,objective;
+		new KMH = Vehicle_Speed(vehicleid);
+		GetVehicleParamsEx(vehicleid, engine,lights,alarm,doors,bonnet,boot,objective);
+		if(engine == 1) switch(KMH) {
+			case 0: V[vehicleid][v_fuel] = floatsub(V[vehicleid][v_fuel], 0.0001);
+			default: V[vehicleid][v_fuel] = floatsub(V[vehicleid][v_fuel], (KMH * 0.00003));
+		}
+		if(V[vehicleid][v_fuel] <= 0) {
+			SetVehicleParamsEx(vehicleid, 0,lights,alarm,doors,bonnet,boot,objective);
+			SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}В вашем автомобиле закончилось топливо!");
+		}
+	}
 }

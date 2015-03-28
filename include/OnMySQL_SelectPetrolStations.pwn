@@ -9,7 +9,7 @@ public OnMySQL_SelectPetrolStations()
 	    orm_addvar_int(PS[x][_ps_ormid], PS[x][ps_uid], "UID");
 	    orm_setkey(PS[x][_ps_ormid], "UID");
 	    orm_addvar_string(PS[x][_ps_ormid], PS[x][ps_name], 30, "Name");
-	    orm_addvar_float(PS[x][_ps_ormid], PS[x][ps_volume], "Volume");
+	    orm_addvar_int(PS[x][_ps_ormid], PS[x][ps_volume], "Volume");
 	    orm_addvar_int(PS[x][_ps_ormid], PS[x][ps_owner], "Owner");
 	    orm_addvar_float(PS[x][_ps_ormid], PS[x][ps_profit], "Profit");
 	    orm_addvar_float(PS[x][_ps_ormid], PS[x][ps_pos_x], "Pos_X");
@@ -25,8 +25,8 @@ public OnMySQL_SelectPetrolStations()
 		format(string, sizeof(string),
 			"%s\n\
 			Владелец: %s\n\
-			Цистерна: %.1f из %.1f\n\
-			Цена: $%.2f за 1.0 литр бензина",
+			Цистерна: %d из %d литров\n\
+			Цена: $%.2f за 1 литр бензина",
 			PS[x][ps_name],ownername,PS[x][ps_volume],FUEL_TANK_LIMIT,Prices_Fuel);
 		PS[x][_ps_text3d] = CreateDynamic3DTextLabel(string, 0x4682B4FF, PS[x][ps_pos_x],PS[x][ps_pos_y],PS[x][ps_pos_z]+1,35.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
 	}

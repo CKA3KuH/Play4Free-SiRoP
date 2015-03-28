@@ -7,23 +7,21 @@ public OnPlayerUpdate(playerid)
         Kick(playerid);
         return 0;
     }
-    // Реактивный ранец
+
     if(GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_USEJETPACK) {
 		printf("[Защита]: Реактивный ранец - %s[%d]", Name(playerid),playerid);
 	    Kick(playerid);
 	    return 0;
 	}
-	// Обновление спидометра
-	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER) {
-	    Speedo_Sync(playerid);
-	}
-	// Оружие
+
 	Weapon_Sync(playerid);
-	// Здоровье
 	Health_Sync(playerid);
-	// Бронежилет
 	Armour_Sync(playerid);
-	// Обновление времени
+
+	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER) {
+		Speedo_Sync(playerid);
+	}
+
 	SetPlayerTime(playerid, g_hour, g_minute);
 	return 1;
 }

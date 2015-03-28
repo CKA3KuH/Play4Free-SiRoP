@@ -1,6 +1,6 @@
 CMD:o(playerid, params[])
 {
-	if(P[playerid][_p_in_game] == false) return 1;
+	if(!P[playerid][_p_in_game]) return 1;
 	if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /o <текст>");
 
 	switch(P[playerid][p_access]) {
@@ -41,7 +41,7 @@ CMD:o(playerid, params[])
 
 CMD:b(playerid, params[])
 {
-    if(P[playerid][_p_in_game] == false) return 1;
+    if(!P[playerid][_p_in_game]) return 1;
     if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /b <текст>");
     if((gettime() - P[playerid][_p_chat_time]) < 3) return 1;
 	if(containsAnyIP(params)) return 1;
@@ -74,7 +74,7 @@ CMD:b(playerid, params[])
 
 CMD:s(playerid, params[])
 {
-    if(P[playerid][_p_in_game] == false) return 1;
+    if(!P[playerid][_p_in_game]) return 1;
     if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /s <текст>");
     if((gettime() - P[playerid][_p_chat_time]) < 3) return 1;
     if(containsAnyIP(params)) return 1;
@@ -109,7 +109,7 @@ CMD:s(playerid, params[])
 
 CMD:me(playerid, params[])
 {
-    if(P[playerid][_p_in_game] == false) return 1;
+    if(!P[playerid][_p_in_game]) return 1;
     if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /me <действие>");
     if(containsAnyIP(params)) return 1;
 
@@ -120,7 +120,7 @@ CMD:me(playerid, params[])
 
 CMD:try(playerid, params[])
 {
-	if(P[playerid][_p_in_game] == false) return 1;
+	if(!P[playerid][_p_in_game]) return 1;
 	if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /try <действие>");
     if(containsAnyIP(params)) return 1;
 
