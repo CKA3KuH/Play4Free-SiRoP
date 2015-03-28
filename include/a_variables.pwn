@@ -207,8 +207,8 @@ new female_skins[][] = {
 };
 
 new Streams[][][] = {
-{"РћС‚РєР»СЋС‡РёС‚СЊ РјСѓР·С‹РєСѓ\n", ""},
-{"Р’РєР»СЋС‡РёС‚СЊ СЃРІРѕР№ URL\n", ""},
+{"Отключить музыку\n", ""},
+{"Включить свой URL\n", ""},
 {"Europa Plus HD\n", "http://ep2561.streamr.ru:8052/europaplus256.mp3"},
 {"NERadio House & Trancel\n", "http://fire1.neradio.com/;"},
 {"Dubplate.fm - Drum & Bass\n", "http://sc2.dubplate.fm:5000/DnB/192"},

@@ -135,9 +135,11 @@ ptask OnPlayerVehicleFuelSync[1000](playerid)
 			case 0: V[vehicleid][v_fuel] = floatsub(V[vehicleid][v_fuel], 0.0001);
 			default: V[vehicleid][v_fuel] = floatsub(V[vehicleid][v_fuel], (KMH * 0.00003));
 		}
-		if(V[vehicleid][v_fuel] <= 0) {
-			SetVehicleParamsEx(vehicleid, 0,lights,alarm,doors,bonnet,boot,objective);
-			SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}В вашем автомобиле закончилось топливо!");
+		if(Vehicle_WithoutFuel(GetVehicleModel(vehicleid)) == 0) {
+			if(V[vehicleid][v_fuel] <= 0) {
+				SetVehicleParamsEx(vehicleid, 0,lights,alarm,doors,bonnet,boot,objective);
+				SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}В вашем автомобиле закончилось топливо!");
+			}
 		}
 	}
 }
