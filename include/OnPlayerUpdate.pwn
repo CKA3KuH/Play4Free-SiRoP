@@ -9,7 +9,7 @@ public OnPlayerUpdate(playerid)
     }
 
     if(GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_USEJETPACK) {
-		printf("[Защита]: Реактивный ранец - %s[%d]", Name(playerid),playerid);
+		printf("[Р—Р°С‰РёС‚Р°]: Р РµР°РєС‚РёРІРЅС‹Р№ СЂР°РЅРµС† - %s[%d]", Name(playerid),playerid);
 	    Kick(playerid);
 	    return 0;
 	}

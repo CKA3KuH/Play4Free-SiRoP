@@ -1,12 +1,12 @@
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
 switch(dialogid) {
-	// Вход в учётную запись
+	// Р’С…РѕРґ РІ СѓС‡С‘С‚РЅСѓСЋ Р·Р°РїРёСЃСЊ
 	case 1: {
 	    if(!response) return Kick(playerid);
-	    if(!strlen(inputtext)) return ShowPlayerDialog(playerid, 1, DIALOG_STYLE_PASSWORD, "Вход в учётную запись",SERVER_NAME"\n\n{FFFFFF}Введите пароль от своей учётной записи для входа в игру","Вход","Выход");
+	    if(!strlen(inputtext)) return ShowPlayerDialog(playerid, 1, DIALOG_STYLE_PASSWORD, "Р’С…РѕРґ РІ СѓС‡С‘С‚РЅСѓСЋ Р·Р°РїРёСЃСЊ",SERVER_NAME"\n\n{FFFFFF}Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ РѕС‚ СЃРІРѕРµР№ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё РґР»СЏ РІС…РѕРґР° РІ РёРіСЂСѓ","Р’С…РѕРґ","Р’С‹С…РѕРґ");
 	    WP_Hash(inputtext, 129, inputtext);
-	    if(strcmp(P[playerid][p_password], inputtext, false) != 0) return ShowPlayerDialog(playerid, 3, DIALOG_STYLE_MSGBOX, "Ошибка входа","{B22222}Ошибка входа в учётную запись.\nВы ввели неверный пароль!\n\n{FFFFFF}Повторить или покинуть игру?","Повтор","Выход");
+	    if(strcmp(P[playerid][p_password], inputtext, false) != 0) return ShowPlayerDialog(playerid, 3, DIALOG_STYLE_MSGBOX, "РћС€РёР±РєР° РІС…РѕРґР°","{B22222}РћС€РёР±РєР° РІС…РѕРґР° РІ СѓС‡С‘С‚РЅСѓСЋ Р·Р°РїРёСЃСЊ.\nР’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ!\n\n{FFFFFF}РџРѕРІС‚РѕСЂРёС‚СЊ РёР»Рё РїРѕРєРёРЅСѓС‚СЊ РёРіСЂСѓ?","РџРѕРІС‚РѕСЂ","Р’С‹С…РѕРґ");
 
 	    new year1,month1,day1,
 			year2,month2,day2;
@@ -16,8 +16,8 @@ switch(dialogid) {
 	        if(month2 >= month1) {
 	            if(day2 > day1) {
 	                new source[256+1];
-					format(source, sizeof(source), SERVER_NAME"\n\n{B22222}Учётная запись {FFFFFF}%s {B22222}заблокирована\n\nДата разблокировки: {FFFFFF}%s", Name(playerid),P[playerid][p_unban_date]);
-					return ShowPlayerDialog(playerid, 7, DIALOG_STYLE_MSGBOX, "Учётная запись заблокирована",source,"Выход","");
+					format(source, sizeof(source), SERVER_NAME"\n\n{B22222}РЈС‡С‘С‚РЅР°СЏ Р·Р°РїРёСЃСЊ {FFFFFF}%s {B22222}Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅР°\n\nР”Р°С‚Р° СЂР°Р·Р±Р»РѕРєРёСЂРѕРІРєРё: {FFFFFF}%s", Name(playerid),P[playerid][p_unban_date]);
+					return ShowPlayerDialog(playerid, 7, DIALOG_STYLE_MSGBOX, "РЈС‡С‘С‚РЅР°СЏ Р·Р°РїРёСЃСЊ Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅР°",source,"Р’С‹С…РѕРґ","");
 	            }
 	        }
 	    }
@@ -26,69 +26,69 @@ switch(dialogid) {
 	    SetPlayerHealth(playerid, P[playerid][p_health]);
 	    TogglePlayerSpectating(playerid, 0);
 	    SetSpawnInfo(playerid, 0, P[playerid][p_skin], 1642.4329,-2239.0205,13.4967,180.0, 0,0,0,0,0,0);
-	    SendClientMessage(playerid, 0xB9C9BFFF, "Вход в учётную запись успешно выполнен.");
-	    SendClientMessage(playerid, 0xB9C9BFFF, "Добро пожаловать, в игру на "SERVER_NAME);
-	    SendClientMessage(playerid, 0xB9C9BFFF, "Главное меню, клавиша - '{00FF00}~k~~CONVERSATION_NO~{FFFFFF}'");
-	    SendClientMessage(playerid, 0xB9C9BFFF, "Управление автомобилем, клавиша - '{00FF00}~k~~CONVERSATION_YES~{FFFFFF}'");
+	    SendClientMessage(playerid, 0xB9C9BFFF, "Р’С…РѕРґ РІ СѓС‡С‘С‚РЅСѓСЋ Р·Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ РІС‹РїРѕР»РЅРµРЅ.");
+	    SendClientMessage(playerid, 0xB9C9BFFF, "Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ, РІ РёРіСЂСѓ РЅР° "SERVER_NAME);
+	    SendClientMessage(playerid, 0xB9C9BFFF, "Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ, РєР»Р°РІРёС€Р° - '{00FF00}~k~~CONVERSATION_NO~{FFFFFF}'");
+	    SendClientMessage(playerid, 0xB9C9BFFF, "РЈРїСЂР°РІР»РµРЅРёРµ Р°РІС‚РѕРјРѕР±РёР»РµРј, РєР»Р°РІРёС€Р° - '{00FF00}~k~~CONVERSATION_YES~{FFFFFF}'");
 	    if(P[playerid][p_access] > 0) {
 	        foreach(new i : Player) {
 	            if(P[i][_p_in_game] == false) continue;
 	            if(P[i][p_access] == 0) continue;
-				va_SendClientMessage(i, 0xADFF2FFF, "Подключился %s - %s [%d]", Get_AccessName(playerid),Name(playerid),playerid);
+				va_SendClientMessage(i, 0xADFF2FFF, "РџРѕРґРєР»СЋС‡РёР»СЃСЏ %s - %s [%d]", Get_AccessName(playerid),Name(playerid),playerid);
 	        }
 	    }
 	}
-	// Создание учётной записи
+	// РЎРѕР·РґР°РЅРёРµ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё
 	case 2: {
 	    if(!response) return Kick(playerid);
-	    if(strlen(inputtext) < 5 || strlen(inputtext) > 18) return ShowPlayerDialog(playerid, 2, DIALOG_STYLE_INPUT, "Создание учётной записи",SERVER_NAME"\n\n{FFFFFF}Придумайте и введите пароль для создания учётной записи.\nУсловия:\n- {B22222}От 5 до 18 символов\n{FFFFFF}- Английские буквы и цифры","Далее","Выход");
+	    if(strlen(inputtext) < 5 || strlen(inputtext) > 18) return ShowPlayerDialog(playerid, 2, DIALOG_STYLE_INPUT, "РЎРѕР·РґР°РЅРёРµ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё",SERVER_NAME"\n\n{FFFFFF}РџСЂРёРґСѓРјР°Р№С‚Рµ Рё РІРІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё.\nРЈСЃР»РѕРІРёСЏ:\n- {B22222}РћС‚ 5 РґРѕ 18 СЃРёРјРІРѕР»РѕРІ\n{FFFFFF}- РђРЅРіР»РёР№СЃРєРёРµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹","Р”Р°Р»РµРµ","Р’С‹С…РѕРґ");
 	    for(new i; i < strlen(inputtext); i++) switch(inputtext[i]) {
 	        case '0'..'9': continue;
 	        case 'a'..'z': continue;
 	        case 'A'..'Z': continue;
-	        default: return ShowPlayerDialog(playerid, 2, DIALOG_STYLE_INPUT, "Создание учётной записи",SERVER_NAME"\n\n{FFFFFF}Придумайте и введите пароль для создания учётной записи.\nУсловия:\n- От 5 до 18 символов\n- {B22222}Английские буквы и цифры","Далее","Выход");
+	        default: return ShowPlayerDialog(playerid, 2, DIALOG_STYLE_INPUT, "РЎРѕР·РґР°РЅРёРµ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё",SERVER_NAME"\n\n{FFFFFF}РџСЂРёРґСѓРјР°Р№С‚Рµ Рё РІРІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё.\nРЈСЃР»РѕРІРёСЏ:\n- РћС‚ 5 РґРѕ 18 СЃРёРјРІРѕР»РѕРІ\n- {B22222}РђРЅРіР»РёР№СЃРєРёРµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹","Р”Р°Р»РµРµ","Р’С‹С…РѕРґ");
 	    }
 	    WP_Hash(P[playerid][p_password], 129, inputtext);
-	    ShowPlayerDialog(playerid, 4, DIALOG_STYLE_MSGBOX, "Выбор пола персонажа",SERVER_NAME"\n\n{FFFFFF}Выберите, какой будет пол у вашего персонажа?","Мужской","Женский");
+	    ShowPlayerDialog(playerid, 4, DIALOG_STYLE_MSGBOX, "Р’С‹Р±РѕСЂ РїРѕР»Р° РїРµСЂСЃРѕРЅР°Р¶Р°",SERVER_NAME"\n\n{FFFFFF}Р’С‹Р±РµСЂРёС‚Рµ, РєР°РєРѕР№ Р±СѓРґРµС‚ РїРѕР» Сѓ РІР°С€РµРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°?","РњСѓР¶СЃРєРѕР№","Р–РµРЅСЃРєРёР№");
 	}
-	// Ошибка входа
+	// РћС€РёР±РєР° РІС…РѕРґР°
 	case 3: switch(response) {
 	    case 0: return Kick(playerid);
-	    case 1: return ShowPlayerDialog(playerid, 1, DIALOG_STYLE_PASSWORD, "Вход в учётную запись",SERVER_NAME"\n\n{FFFFFF}Введите пароль от своей учётной записи для входа в игру","Вход","Выход");
+	    case 1: return ShowPlayerDialog(playerid, 1, DIALOG_STYLE_PASSWORD, "Р’С…РѕРґ РІ СѓС‡С‘С‚РЅСѓСЋ Р·Р°РїРёСЃСЊ",SERVER_NAME"\n\n{FFFFFF}Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ РѕС‚ СЃРІРѕРµР№ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё РґР»СЏ РІС…РѕРґР° РІ РёРіСЂСѓ","Р’С…РѕРґ","Р’С‹С…РѕРґ");
 	}
-	// Выбор пола персонажа
+	// Р’С‹Р±РѕСЂ РїРѕР»Р° РїРµСЂСЃРѕРЅР°Р¶Р°
 	case 4: {
 	    P[playerid][p_sex] = response;
 	    SkinShop_Show(playerid, ORG_UNKNOWN);
 	}
-	// Имя персонажа | Учётная запись заблокирована
+	// РРјСЏ РїРµСЂСЃРѕРЅР°Р¶Р° | РЈС‡С‘С‚РЅР°СЏ Р·Р°РїРёСЃСЊ Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅР°
 	case 5,7: Kick(playerid);
-	// Управление автомобилем
+	// РЈРїСЂР°РІР»РµРЅРёРµ Р°РІС‚РѕРјРѕР±РёР»РµРј
 	case 6: {
 	    new engine,lights,alarm,doors,bonnet,boot,objective;
 	    new vehicleid = GetPlayerVehicleID(playerid);
 		GetVehicleParamsEx(vehicleid, engine,lights,alarm,doors,bonnet,boot,objective);
 		if(response) switch(listitem) {
-		    // двигатель
+		    // РґРІРёРіР°С‚РµР»СЊ
 		    case 0: switch(engine) {
 		        case -1,0: {
 		            if(Vehicle_IsNotForPlayer(vehicleid, playerid)) return 1;
 		            if(Vehicle_IsPlayerWithLicense(GetVehicleModel(vehicleid), playerid) == 0) {
-		                return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}У вас нет опыта и лицензии управления данным транспортным средством!");
+		                return SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РЈ РІР°СЃ РЅРµС‚ РѕРїС‹С‚Р° Рё Р»РёС†РµРЅР·РёРё СѓРїСЂР°РІР»РµРЅРёСЏ РґР°РЅРЅС‹Рј С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рј СЃСЂРµРґСЃС‚РІРѕРј!");
 		            }
 		            if(Vehicle_WithoutFuel(GetVehicleModel(vehicleid)) == 0) {
-		                if(V[vehicleid][v_fuel] <= 0) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}В автомобиле закончилось топливо!");
+		                if(V[vehicleid][v_fuel] <= 0) return SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}Р’ Р°РІС‚РѕРјРѕР±РёР»Рµ Р·Р°РєРѕРЅС‡РёР»РѕСЃСЊ С‚РѕРїР»РёРІРѕ!");
 		            }
 					SetVehicleParamsEx(vehicleid, 1,lights,alarm,doors,bonnet,boot,objective);
 		        }
 		        case 1: SetVehicleParamsEx(vehicleid, 0,lights,alarm,doors,bonnet,boot,objective);
 		    }
-		    // фары
+		    // С„Р°СЂС‹
 		    case 1: switch(lights) {
 		        case -1,0: SetVehicleParamsEx(vehicleid, engine,1,alarm,doors,bonnet,boot,objective);
 		        case 1: SetVehicleParamsEx(vehicleid, engine,0,alarm,doors,bonnet,boot,objective);
 		    }
-		    // двери
+		    // РґРІРµСЂРё
 		    case 2: {
 		        if(Vehicle_IsNotForPlayer(vehicleid, playerid)) return 1;
 		        if(Vehicle_WithoutDoor(GetVehicleModel(vehicleid)) == 1) return 1;
@@ -97,27 +97,27 @@ switch(dialogid) {
 		        	case 1: SetVehicleParamsEx(vehicleid, engine,lights,alarm,0,bonnet,boot,objective);
 		        }
 		    }
-		    // капот
+		    // РєР°РїРѕС‚
 		    case 3: switch(bonnet) {
 		        case -1,0: SetVehicleParamsEx(vehicleid, engine,lights,alarm,doors,1,boot,objective);
 		        case 1: SetVehicleParamsEx(vehicleid, engine,lights,alarm,doors,0,boot,objective);
 		    }
-		    // багажник
+		    // Р±Р°РіР°Р¶РЅРёРє
 		    case 4: switch(boot) {
 		        case -1,0: SetVehicleParamsEx(vehicleid, engine,lights,alarm,doors,bonnet,1,objective);
 		        case 1: SetVehicleParamsEx(vehicleid, engine,lights,alarm,doors,bonnet,0,objective);
 		    }
-		    // автомобильное радио
+		    // Р°РІС‚РѕРјРѕР±РёР»СЊРЅРѕРµ СЂР°РґРёРѕ
 		    case 5: {
 		        new string[512];
 		        for(new i; i < sizeof(Streams); i++) strcat(string, Streams[i][0]);
-		        ShowPlayerDialog(playerid, 8, DIALOG_STYLE_LIST, "Автомобильное радио", string, "Выбор","Отмена");
+		        ShowPlayerDialog(playerid, 8, DIALOG_STYLE_LIST, "РђРІС‚РѕРјРѕР±РёР»СЊРЅРѕРµ СЂР°РґРёРѕ", string, "Р’С‹Р±РѕСЂ","РћС‚РјРµРЅР°");
 		    }
-		    // отцепить трейлер
+		    // РѕС‚С†РµРїРёС‚СЊ С‚СЂРµР№Р»РµСЂ
 		    case 6: DetachTrailerFromVehicle(vehicleid);
 		}
 	}
-	// Автомобильное радио
+	// РђРІС‚РѕРјРѕР±РёР»СЊРЅРѕРµ СЂР°РґРёРѕ
 	case 8: if(response) switch(listitem) {
 	    case 0: {
 	        new vehicleid = GetPlayerVehicleID(playerid);
@@ -128,7 +128,7 @@ switch(dialogid) {
 			}
 			V[vehicleid][_v_stream_id] = 0;
 	    }
-	    case 1: ShowPlayerDialog(playerid, 9, DIALOG_STYLE_INPUT, "Включить свой URL","{FFFFFF}Введите URL-адрес на интернет-поток с музыкой","Включить","Назад");
+	    case 1: ShowPlayerDialog(playerid, 9, DIALOG_STYLE_INPUT, "Р’РєР»СЋС‡РёС‚СЊ СЃРІРѕР№ URL","{FFFFFF}Р’РІРµРґРёС‚Рµ URL-Р°РґСЂРµСЃ РЅР° РёРЅС‚РµСЂРЅРµС‚-РїРѕС‚РѕРє СЃ РјСѓР·С‹РєРѕР№","Р’РєР»СЋС‡РёС‚СЊ","РќР°Р·Р°Рґ");
 	    default: {
 	        new vehicleid = GetPlayerVehicleID(playerid);
 			foreach(new i : Player) {
@@ -140,11 +140,11 @@ switch(dialogid) {
 			format(V[vehicleid][_v_stream_url], 128, Streams[listitem][1]);
 	    }
 	}
-	// Включить свой URL
+	// Р’РєР»СЋС‡РёС‚СЊ СЃРІРѕР№ URL
 	case 9: switch(response) {
 	    case 0: CallLocalFunction("OnDialogResponse", "dddd", playerid,6,1,5);
 	    case 1: {
-	        if(!strlen(inputtext)) return ShowPlayerDialog(playerid, 9, DIALOG_STYLE_INPUT, "Включить свой URL","{FFFFFF}Введите URL-адрес на интернет-поток с музыкой","Включить","Назад");
+	        if(!strlen(inputtext)) return ShowPlayerDialog(playerid, 9, DIALOG_STYLE_INPUT, "Р’РєР»СЋС‡РёС‚СЊ СЃРІРѕР№ URL","{FFFFFF}Р’РІРµРґРёС‚Рµ URL-Р°РґСЂРµСЃ РЅР° РёРЅС‚РµСЂРЅРµС‚-РїРѕС‚РѕРє СЃ РјСѓР·С‹РєРѕР№","Р’РєР»СЋС‡РёС‚СЊ","РќР°Р·Р°Рґ");
 	        new vehicleid = GetPlayerVehicleID(playerid);
 			foreach(new i : Player) {
 			    if(P[i][_p_in_game] == false) continue;
@@ -155,21 +155,21 @@ switch(dialogid) {
 			format(V[vehicleid][_v_stream_url], 128, inputtext);
 	    }
 	}
-	// Аренда транспорта
+	// РђСЂРµРЅРґР° С‚СЂР°РЅСЃРїРѕСЂС‚Р°
 	case 10: switch(response) {
 	    case 0: RemovePlayerFromVehicle(playerid);
 	    case 1: {
 	        new minute = strval(inputtext);
 	    	if(minute < 1 || minute > 240) {
-	    	    SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Количество минут должно быть от 1 до 240");
+	    	    SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РљРѕР»РёС‡РµСЃС‚РІРѕ РјРёРЅСѓС‚ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РѕС‚ 1 РґРѕ 240");
 	            return RemovePlayerFromVehicle(playerid);
 	    	}
 	        new Float: amount = floatmul(minute, Prices_RentCar);
 	        if(P[playerid][p_cash] < amount) {
-	            SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Недостаточно денежных средств для аренды транспорта");
+	            SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµР¶РЅС‹С… СЃСЂРµРґСЃС‚РІ РґР»СЏ Р°СЂРµРЅРґС‹ С‚СЂР°РЅСЃРїРѕСЂС‚Р°");
 	            return RemovePlayerFromVehicle(playerid);
 	        }
-	        va_SendClientMessage(playerid, -1, "Транспортное средство арендовано на %d минут за $%.2f", minute,amount);
+	        va_SendClientMessage(playerid, -1, "РўСЂР°РЅСЃРїРѕСЂС‚РЅРѕРµ СЃСЂРµРґСЃС‚РІРѕ Р°СЂРµРЅРґРѕРІР°РЅРѕ РЅР° %d РјРёРЅСѓС‚ Р·Р° $%.2f", minute,amount);
 	        Cash_Give(playerid, -amount);
 	        Budget_GOVERNMENT += amount;
 	        for(new i; i < sizeof(V_RENT); i++) {
@@ -179,21 +179,21 @@ switch(dialogid) {
 	        }
 	    }
 	}
-	// Аренда такси
+	// РђСЂРµРЅРґР° С‚Р°РєСЃРё
 	case 11: switch(response) {
 	    case 0: RemovePlayerFromVehicle(playerid);
 	    case 1: {
 	        new minute = strval(inputtext);
 	        if(minute < 1 || minute > 240) {
-	    	    SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Количество минут должно быть от 1 до 240");
+	    	    SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РљРѕР»РёС‡РµСЃС‚РІРѕ РјРёРЅСѓС‚ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РѕС‚ 1 РґРѕ 240");
 	            return RemovePlayerFromVehicle(playerid);
 	    	}
 	        new Float: amount = floatmul(minute, Prices_RentCar);
 	        if(P[playerid][p_cash] < amount) {
-	            SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Недостаточно денежных средств для аренды транспорта");
+	            SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµР¶РЅС‹С… СЃСЂРµРґСЃС‚РІ РґР»СЏ Р°СЂРµРЅРґС‹ С‚СЂР°РЅСЃРїРѕСЂС‚Р°");
 	            return RemovePlayerFromVehicle(playerid);
 	        }
-	        va_SendClientMessage(playerid, -1, "Автомобиль такси арендован на %d минут за $%.2f", minute,amount);
+	        va_SendClientMessage(playerid, -1, "РђРІС‚РѕРјРѕР±РёР»СЊ С‚Р°РєСЃРё Р°СЂРµРЅРґРѕРІР°РЅ РЅР° %d РјРёРЅСѓС‚ Р·Р° $%.2f", minute,amount);
 	        Cash_Give(playerid, -amount);
 	        Budget_GOVERNMENT += amount;
 	        for(new i; i < sizeof(V_TAXI); i++) {
@@ -203,21 +203,21 @@ switch(dialogid) {
 	        }
 	    }
 	}
-	// Аренда служебного транспорта
+	// РђСЂРµРЅРґР° СЃР»СѓР¶РµР±РЅРѕРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚Р°
 	case 12: switch(response) {
 	    case 0: RemovePlayerFromVehicle(playerid);
 	    case 1: {
 	        new minute = strval(inputtext);
 	        if(minute < 1 || minute > 240) {
-	    	    SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Количество минут должно быть от 1 до 240");
+	    	    SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РљРѕР»РёС‡РµСЃС‚РІРѕ РјРёРЅСѓС‚ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РѕС‚ 1 РґРѕ 240");
 	            return RemovePlayerFromVehicle(playerid);
 	    	}
 	        new Float: amount = floatmul(minute, Prices_RentCar);
 	        if(P[playerid][p_cash] < amount) {
-	            SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Недостаточно денежных средств для аренды транспорта");
+	            SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµР¶РЅС‹С… СЃСЂРµРґСЃС‚РІ РґР»СЏ Р°СЂРµРЅРґС‹ С‚СЂР°РЅСЃРїРѕСЂС‚Р°");
 	            return RemovePlayerFromVehicle(playerid);
 	        }
-	        va_SendClientMessage(playerid, -1, "Автомобиль такси арендован на %d минут за $%.2f", minute,amount);
+	        va_SendClientMessage(playerid, -1, "РђРІС‚РѕРјРѕР±РёР»СЊ С‚Р°РєСЃРё Р°СЂРµРЅРґРѕРІР°РЅ РЅР° %d РјРёРЅСѓС‚ Р·Р° $%.2f", minute,amount);
 	        Cash_Give(playerid, -amount);
 	        Budget_GOVERNMENT += amount;
 	        for(new i; i < sizeof(V_ENGINEER); i++) {
@@ -227,21 +227,21 @@ switch(dialogid) {
 	        }
 	    }
 	}
-	// Аренда грузовика
+	// РђСЂРµРЅРґР° РіСЂСѓР·РѕРІРёРєР°
 	case 13: switch(response) {
 	    case 0: RemovePlayerFromVehicle(playerid);
 	    case 1: {
 	        new minute = strval(inputtext);
 	        if(minute < 1 || minute > 240) {
-	    	    SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Количество минут должно быть от 1 до 240");
+	    	    SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РљРѕР»РёС‡РµСЃС‚РІРѕ РјРёРЅСѓС‚ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РѕС‚ 1 РґРѕ 240");
 	            return RemovePlayerFromVehicle(playerid);
 	    	}
 	        new Float: amount = floatmul(minute, Prices_RentCar);
 	        if(P[playerid][p_cash] < amount) {
-	            SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Недостаточно денежных средств для аренды транспорта");
+	            SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµР¶РЅС‹С… СЃСЂРµРґСЃС‚РІ РґР»СЏ Р°СЂРµРЅРґС‹ С‚СЂР°РЅСЃРїРѕСЂС‚Р°");
 	            return RemovePlayerFromVehicle(playerid);
 	        }
-	        va_SendClientMessage(playerid, -1, "Автомобиль такси арендован на %d минут за $%.2f", minute,amount);
+	        va_SendClientMessage(playerid, -1, "РђРІС‚РѕРјРѕР±РёР»СЊ С‚Р°РєСЃРё Р°СЂРµРЅРґРѕРІР°РЅ РЅР° %d РјРёРЅСѓС‚ Р·Р° $%.2f", minute,amount);
 	        Cash_Give(playerid, -amount);
 	        Budget_GOVERNMENT += amount;
 	        for(new i; i < sizeof(V_FREIGHTER); i++) {

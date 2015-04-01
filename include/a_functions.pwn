@@ -2,12 +2,12 @@ stock Get_AccessName(playerid)
 {
 	new dest[15];
 	switch(P[playerid][p_access]) {
-	    case 0: dest = "Простой игрок";
-	    case 1: dest = "Помощник";
-	    case 2: dest = "Модератор";
-	    case 3: dest = "Супермодератор";
-	    case 4: dest = "Администратор";
-	    case 5: dest = "Разработчик";
+	    case 0: dest = "РџСЂРѕСЃС‚РѕР№ РёРіСЂРѕРє";
+	    case 1: dest = "РџРѕРјРѕС‰РЅРёРє";
+	    case 2: dest = "РњРѕРґРµСЂР°С‚РѕСЂ";
+	    case 3: dest = "РЎСѓРїРµСЂРјРѕРґРµСЂР°С‚РѕСЂ";
+	    case 4: dest = "РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
+	    case 5: dest = "Р Р°Р·СЂР°Р±РѕС‚С‡РёРє";
 	}
 	return dest;
 }
@@ -16,28 +16,28 @@ stock Get_TeamName(playerid)
 {
 	new dest[32];
 	switch(P[playerid][p_job_team]) {
-		case ORG_UNKNOWN: dest = "Неизвестная организация";
-		case ORG_GOVERNMENT: dest = "Правительство Штата";
-		case ORG_FBI: dest = "Федеральное Бюро Расследований";
-		case ORG_LSPD: dest = "Полиция Лос Сантос";
-		case ORG_SFPD: dest = "Полиция Сан Фиерро";
-		case ORG_LVPD: dest = "Полиция Лас Вентурас";
-		case ORG_MILITARY: dest = "Национальная Гвардия";
-		case ORG_EMERGENCY: dest = "Служба Экстренной Помощи";
-		case ORG_SANNEWS: dest = "Новости Сан Андреас";
-		case ORG_AUTOSCHOOL: dest = "Центр Аттестации";
-		case ORG_GROVE: dest = "Банда Grove Street";
-		case ORG_BALLAS: dest = "Банда Ballas";
-		case ORG_AZTECAS: dest = "Банда Aztecas";
-		case ORG_VAGOS: dest = "Банда Vagos";
-		case ORG_DANANG: dest = "Банда Da Nang";
-		case ORG_RIFA: dest = "Банда Rifa";
-		case ORG_CHINESE: dest = "Семья 'Триада'";
-		case ORG_RUSSIAN: dest = "Семья 'Воры в законе'";
-		case ORG_ITALIAN: dest = "Семья 'Ла Коза Ностра'";
-		case JOB_TAXI: dest = "Таксист";
-		case JOB_ENGINEER: dest = "Инженер";
-		case JOB_FREIGHTER: dest = "Грузоперевозчик";
+		case ORG_UNKNOWN: dest = "РќРµРёР·РІРµСЃС‚РЅР°СЏ РѕСЂРіР°РЅРёР·Р°С†РёСЏ";
+		case ORG_GOVERNMENT: dest = "РџСЂР°РІРёС‚РµР»СЊСЃС‚РІРѕ РЁС‚Р°С‚Р°";
+		case ORG_FBI: dest = "Р¤РµРґРµСЂР°Р»СЊРЅРѕРµ Р‘СЋСЂРѕ Р Р°СЃСЃР»РµРґРѕРІР°РЅРёР№";
+		case ORG_LSPD: dest = "РџРѕР»РёС†РёСЏ Р›РѕСЃ РЎР°РЅС‚РѕСЃ";
+		case ORG_SFPD: dest = "РџРѕР»РёС†РёСЏ РЎР°РЅ Р¤РёРµСЂСЂРѕ";
+		case ORG_LVPD: dest = "РџРѕР»РёС†РёСЏ Р›Р°СЃ Р’РµРЅС‚СѓСЂР°СЃ";
+		case ORG_MILITARY: dest = "РќР°С†РёРѕРЅР°Р»СЊРЅР°СЏ Р“РІР°СЂРґРёСЏ";
+		case ORG_EMERGENCY: dest = "РЎР»СѓР¶Р±Р° Р­РєСЃС‚СЂРµРЅРЅРѕР№ РџРѕРјРѕС‰Рё";
+		case ORG_SANNEWS: dest = "РќРѕРІРѕСЃС‚Рё РЎР°РЅ РђРЅРґСЂРµР°СЃ";
+		case ORG_AUTOSCHOOL: dest = "Р¦РµРЅС‚СЂ РђС‚С‚РµСЃС‚Р°С†РёРё";
+		case ORG_GROVE: dest = "Р‘Р°РЅРґР° Grove Street";
+		case ORG_BALLAS: dest = "Р‘Р°РЅРґР° Ballas";
+		case ORG_AZTECAS: dest = "Р‘Р°РЅРґР° Aztecas";
+		case ORG_VAGOS: dest = "Р‘Р°РЅРґР° Vagos";
+		case ORG_DANANG: dest = "Р‘Р°РЅРґР° Da Nang";
+		case ORG_RIFA: dest = "Р‘Р°РЅРґР° Rifa";
+		case ORG_CHINESE: dest = "РЎРµРјСЊСЏ 'РўСЂРёР°РґР°'";
+		case ORG_RUSSIAN: dest = "РЎРµРјСЊСЏ 'Р’РѕСЂС‹ РІ Р·Р°РєРѕРЅРµ'";
+		case ORG_ITALIAN: dest = "РЎРµРјСЊСЏ 'Р›Р° РљРѕР·Р° РќРѕСЃС‚СЂР°'";
+		case JOB_TAXI: dest = "РўР°РєСЃРёСЃС‚";
+		case JOB_ENGINEER: dest = "РРЅР¶РµРЅРµСЂ";
+		case JOB_FREIGHTER: dest = "Р“СЂСѓР·РѕРїРµСЂРµРІРѕР·С‡РёРє";
 	}
 	return dest;
 }
@@ -280,7 +280,7 @@ stock containsAnyIP(const string[])
 	for(new pos; ; pos++) {
 		switch(string[pos]) {
 			case 0: break;
-			case '0'..'9', 'o', 'O', 'о', 'О', 'з', 'З': digits++;
+			case '0'..'9', 'o', 'O', 'Рѕ', 'Рћ', 'Р·', 'Р—': digits++;
 			default: {
 				if(digits >= 2) {
 					digitGroups++;
@@ -322,14 +322,14 @@ stock Weapon_Sync(playerid)
 				P[playerid][p_weapon_3] = 0;
 				P[playerid][p_ammo_2] = 0;
 				P[playerid][p_ammo_3] = 0;
-				printf("[Защита]: Чёрный список оружия - %s[%d] | W: %d / A: %d", Name(playerid),playerid,weapon[i],ammo[i]);
+				printf("[Р—Р°С‰РёС‚Р°]: Р§С‘СЂРЅС‹Р№ СЃРїРёСЃРѕРє РѕСЂСѓР¶РёСЏ - %s[%d] | W: %d / A: %d", Name(playerid),playerid,weapon[i],ammo[i]);
 				P[playerid][_p_cheater]++;
 			}
 			default: {
 			    if(weapon[i] == P[playerid][p_weapon_1]) continue;
 			    else if(weapon[i] == P[playerid][p_weapon_2]) {
 			        if(ammo[i] > P[playerid][p_ammo_2]+1 && ammo[i] > P[playerid][p_ammo_2]+2) {
-						printf("[Защита]: Несоответствие патронов - %s[%d] | %d | C: %d / S: %d",
+						printf("[Р—Р°С‰РёС‚Р°]: РќРµСЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ РїР°С‚СЂРѕРЅРѕРІ - %s[%d] | %d | C: %d / S: %d",
 							Name(playerid),playerid,weapon[i],ammo[i],P[playerid][p_ammo_2]);
 						SetPlayerAmmo(playerid, P[playerid][p_weapon_2], P[playerid][p_ammo_2]);
 						P[playerid][_p_cheater]++;
@@ -337,13 +337,13 @@ stock Weapon_Sync(playerid)
 			    }
 			    else if(weapon[i] == P[playerid][p_weapon_3]) {
 			        if(ammo[i] > P[playerid][p_ammo_3]+1 && ammo[i] > P[playerid][p_ammo_3]+2) {
-						printf("[Защита]: Несоответствие патронов - %s[%d] | %d | C: %d / S: %d",
+						printf("[Р—Р°С‰РёС‚Р°]: РќРµСЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ РїР°С‚СЂРѕРЅРѕРІ - %s[%d] | %d | C: %d / S: %d",
 							Name(playerid),playerid,weapon[i],ammo[i],P[playerid][p_ammo_3]);
 						SetPlayerAmmo(playerid, P[playerid][p_weapon_3], P[playerid][p_ammo_3]);
 						P[playerid][_p_cheater]++;
 			        }
 			    } else {
-			        printf("[Защита]: Несоответствие оружия - %s[%d] | %d / %d",
+			        printf("[Р—Р°С‰РёС‚Р°]: РќРµСЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ РѕСЂСѓР¶РёСЏ - %s[%d] | %d / %d",
 						Name(playerid),playerid,weapon[i],ammo[i]);
 			        ResetPlayerWeapons(playerid);
 			        if(P[playerid][p_weapon_1] != 0) GivePlayerWeapon(playerid, P[playerid][p_weapon_1],1);
@@ -372,7 +372,7 @@ stock Health_Sync(playerid)
 			if(P[playerid][p_health] > 100) P[playerid][p_health] = 100;
 			SetPlayerHealth(playerid, P[playerid][p_health]);
 	    } else {
-	        printf("[Защита]: Несоответствие здоровья - %s[%d] | C: %d / S: %d",
+	        printf("[Р—Р°С‰РёС‚Р°]: РќРµСЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ Р·РґРѕСЂРѕРІСЊСЏ - %s[%d] | C: %d / S: %d",
 				Name(playerid),playerid,health,P[playerid][p_health]);
 	        SetPlayerHealth(playerid, P[playerid][p_health]);
 	        P[playerid][_p_cheater]++;
@@ -391,7 +391,7 @@ stock Armour_Sync(playerid)
 	GetPlayerArmour(playerid, farmour);
 	new armour = floatround(farmour);
 	if(armour > P[playerid][p_armour]) {
-	    printf("[Защита]: Несоответствие бронежилета - %s[%d] | C: %d / S: %d",
+	    printf("[Р—Р°С‰РёС‚Р°]: РќРµСЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ Р±СЂРѕРЅРµР¶РёР»РµС‚Р° - %s[%d] | C: %d / S: %d",
 			Name(playerid),playerid,armour,P[playerid][p_armour]);
 	    SetPlayerArmour(playerid, P[playerid][p_armour]);
 	    P[playerid][_p_cheater]++;

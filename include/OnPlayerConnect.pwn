@@ -2,7 +2,7 @@ public OnPlayerConnect(playerid)
 {
 	TogglePlayerSpectating(playerid, 1);
 	GetPlayerName(playerid, P[playerid][p_name], MAX_PLAYER_NAME);
-	if(!Name_IsValid(P[playerid][p_name])) return ShowPlayerDialog(playerid, 5, DIALOG_STYLE_MSGBOX, "Имя персонажа",SERVER_NAME"\n\n{B22222}Имя вашего персонажа несоответствует нашим условиям.\nПравильный формат:\n\n\t{FFFFFF}Имя_Фамилия (на английском)","Выход","");
+	if(!Name_IsValid(P[playerid][p_name])) return ShowPlayerDialog(playerid, 5, DIALOG_STYLE_MSGBOX, "РРјСЏ РїРµСЂСЃРѕРЅР°Р¶Р°",SERVER_NAME"\n\n{B22222}РРјСЏ РІР°С€РµРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµСЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РЅР°С€РёРј СѓСЃР»РѕРІРёСЏРј.\nРџСЂР°РІРёР»СЊРЅС‹Р№ С„РѕСЂРјР°С‚:\n\n\t{FFFFFF}РРјСЏ_Р¤Р°РјРёР»РёСЏ (РЅР° Р°РЅРіР»РёР№СЃРєРѕРј)","Р’С‹С…РѕРґ","");
 
 	new ORM: ormid = P[playerid][_p_ormid] = orm_create("accounts");
 

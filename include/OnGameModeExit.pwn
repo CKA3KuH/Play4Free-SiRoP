@@ -1,22 +1,22 @@
 public OnGameModeExit()
 {
     SendRconCommand("unloadfs map");
-    // Обновление игроков
+    // РћР±РЅРѕРІР»РµРЅРёРµ РёРіСЂРѕРєРѕРІ
     foreach(new i : Player) CallLocalFunction("OnPlayerDisconnect", "dd", i,1);
-	// Обновление конфигурации
+	// РћР±РЅРѕРІР»РµРЅРёРµ РєРѕРЅС„РёРіСѓСЂР°С†РёРё
 	new INI: txtfile = INI_Open("budget.ini");
 	INI_WriteFloat(txtfile, "Government", Budget_GOVERNMENT);
 	INI_Close(txtfile);
 	txtfile = INI_Open("settings.ini");
 	INI_WriteInt(txtfile, "Chat_OOC", g_Chat_OOC);
 	INI_Close(txtfile);
-	// АЗС
+	// РђР—РЎ
 	for(new i; i < sizeof(PS); i++) {
 		if(!PS[i][_ps_ormid]) continue;
 		orm_update(PS[i][_ps_ormid]);
 		orm_destroy(PS[i][_ps_ormid]);
 	}
-	// Отключение MySQL
+	// РћС‚РєР»СЋС‡РµРЅРёРµ MySQL
 	mysql_close();
 	return 1;
 }

@@ -2,8 +2,8 @@ forward OnMySQL_SelectAccount(playerid);
 public OnMySQL_SelectAccount(playerid)
 {
 	switch(orm_errno(P[playerid][_p_ormid])) {
-	    case ERROR_OK: ShowPlayerDialog(playerid, 1, DIALOG_STYLE_PASSWORD, "Вход в учётную запись",SERVER_NAME"\n\n{FFFFFF}Введите пароль от своей учётной записи для входа в игру","Вход","Выход");
-	    case ERROR_NO_DATA: ShowPlayerDialog(playerid, 2, DIALOG_STYLE_INPUT, "Создание учётной записи",SERVER_NAME"\n\n{FFFFFF}Придумайте и введите пароль для создания учётной записи.\nУсловия:\n- От 5 до 18 символов\n- Английские буквы и цифры","Далее","Выход");
+	    case ERROR_OK: ShowPlayerDialog(playerid, 1, DIALOG_STYLE_PASSWORD, "Р’С…РѕРґ РІ СѓС‡С‘С‚РЅСѓСЋ Р·Р°РїРёСЃСЊ",SERVER_NAME"\n\n{FFFFFF}Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ РѕС‚ СЃРІРѕРµР№ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё РґР»СЏ РІС…РѕРґР° РІ РёРіСЂСѓ","Р’С…РѕРґ","Р’С‹С…РѕРґ");
+	    case ERROR_NO_DATA: ShowPlayerDialog(playerid, 2, DIALOG_STYLE_INPUT, "РЎРѕР·РґР°РЅРёРµ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё",SERVER_NAME"\n\n{FFFFFF}РџСЂРёРґСѓРјР°Р№С‚Рµ Рё РІРІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё.\nРЈСЃР»РѕРІРёСЏ:\n- РћС‚ 5 РґРѕ 18 СЃРёРјРІРѕР»РѕРІ\n- РђРЅРіР»РёР№СЃРєРёРµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹","Р”Р°Р»РµРµ","Р’С‹С…РѕРґ");
 	}
 	orm_setkey(P[playerid][_p_ormid], "UID");
 	GetPlayerIp(playerid, P[playerid][p_last_ip], 46);

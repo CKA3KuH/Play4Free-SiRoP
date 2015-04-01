@@ -8,8 +8,8 @@ public OnMySQL_InsertAccount(playerid)
 	TogglePlayerSpectating(playerid, 0);
 	SetSpawnInfo(playerid, 0, P[playerid][p_skin], 1642.4329,-2239.0205,13.4967,180.0, 0,0,0,0,0,0);
 	P[playerid][p_health] = 100;
-	SendClientMessage(playerid, 0xB9C9BFFF, "Создание учётной записи успешно выполнено.");
-    SendClientMessage(playerid, 0xB9C9BFFF, "Добро пожаловать, в игру на "SERVER_NAME);
-	SendClientMessage(playerid, 0xB9C9BFFF, "Главное меню, клавиша - '{00FF00}~k~~CONVERSATION_NO~{FFFFFF}'");
-    SendClientMessage(playerid, 0xB9C9BFFF, "Управление автомобилем, клавиша - '{00FF00}~k~~CONVERSATION_YES~{FFFFFF}'");
+	SendClientMessage(playerid, 0xB9C9BFFF, "РЎРѕР·РґР°РЅРёРµ СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё СѓСЃРїРµС€РЅРѕ РІС‹РїРѕР»РЅРµРЅРѕ.");
+    SendClientMessage(playerid, 0xB9C9BFFF, "Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ, РІ РёРіСЂСѓ РЅР° "SERVER_NAME);
+	SendClientMessage(playerid, 0xB9C9BFFF, "Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ, РєР»Р°РІРёС€Р° - '{00FF00}~k~~CONVERSATION_NO~{FFFFFF}'");
+    SendClientMessage(playerid, 0xB9C9BFFF, "РЈРїСЂР°РІР»РµРЅРёРµ Р°РІС‚РѕРјРѕР±РёР»РµРј, РєР»Р°РІРёС€Р° - '{00FF00}~k~~CONVERSATION_YES~{FFFFFF}'");
 }

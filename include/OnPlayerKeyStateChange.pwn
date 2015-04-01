@@ -6,41 +6,41 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	{
 		new vehicleid = GetPlayerVehicleID(playerid);
 
-	    // Управление автомобилем
+	    // РЈРїСЂР°РІР»РµРЅРёРµ Р°РІС‚РѕРјРѕР±РёР»РµРј
 	    if(newkeys & KEY_YES)
 	    {
 	    	new source[202],str_engine[36],str_lights[32],str_doors[30],str_bonnet[30],str_boot[33];
 	    	new engine,lights,alarm,doors,bonnet,boot,objective;
 	    	GetVehicleParamsEx(vehicleid, engine,lights,alarm,doors,bonnet,boot,objective);
 	    	switch(engine) {
-	    	    case -1,0: str_engine = "{00FF00}Включить {FFFFFF}двигатель";
-	    	    case 1: str_engine = "{FF0000}Отключить {FFFFFF}двигатель";
+	    	    case -1,0: str_engine = "{00FF00}Р’РєР»СЋС‡РёС‚СЊ {FFFFFF}РґРІРёРіР°С‚РµР»СЊ";
+	    	    case 1: str_engine = "{FF0000}РћС‚РєР»СЋС‡РёС‚СЊ {FFFFFF}РґРІРёРіР°С‚РµР»СЊ";
 	    	}
 	    	switch(lights) {
-	    	    case -1,0: str_lights = "{00FF00}Включить {FFFFFF}фары";
-	    	    case 1: str_lights = "{FF0000}Отключить {FFFFFF}фары";
+	    	    case -1,0: str_lights = "{00FF00}Р’РєР»СЋС‡РёС‚СЊ {FFFFFF}С„Р°СЂС‹";
+	    	    case 1: str_lights = "{FF0000}РћС‚РєР»СЋС‡РёС‚СЊ {FFFFFF}С„Р°СЂС‹";
 	    	}
 	    	switch(doors) {
-	    	    case -1,0: str_doors = "{FF0000}Закрыть {FFFFFF}двери";
-	    	    case 1: str_doors = "{00FF00}Открыть {FFFFFF}двери";
+	    	    case -1,0: str_doors = "{FF0000}Р—Р°РєСЂС‹С‚СЊ {FFFFFF}РґРІРµСЂРё";
+	    	    case 1: str_doors = "{00FF00}РћС‚РєСЂС‹С‚СЊ {FFFFFF}РґРІРµСЂРё";
 	    	}
 	    	switch(bonnet) {
-	    	    case -1,0: str_bonnet = "{00FF00}Открыть {FFFFFF}капот";
-	    	    case 1: str_bonnet = "{FF0000}Закрыть {FFFFFF}капот";
+	    	    case -1,0: str_bonnet = "{00FF00}РћС‚РєСЂС‹С‚СЊ {FFFFFF}РєР°РїРѕС‚";
+	    	    case 1: str_bonnet = "{FF0000}Р—Р°РєСЂС‹С‚СЊ {FFFFFF}РєР°РїРѕС‚";
 	    	}
 	    	switch(boot) {
-	    	    case -1,0: str_boot = "{00FF00}Открыть {FFFFFF}багажник";
-	    	    case 1: str_boot = "{FF0000}Закрыть {FFFFFF}багажник";
+	    	    case -1,0: str_boot = "{00FF00}РћС‚РєСЂС‹С‚СЊ {FFFFFF}Р±Р°РіР°Р¶РЅРёРє";
+	    	    case 1: str_boot = "{FF0000}Р—Р°РєСЂС‹С‚СЊ {FFFFFF}Р±Р°РіР°Р¶РЅРёРє";
 	    	}
 	    	switch(IsTrailerAttachedToVehicle(vehicleid)) {
 	    		case 0: format(source, sizeof(source),
-					"%s\n%s\n%s\n%s\n%s\nАвтомобильное радио",
+					"%s\n%s\n%s\n%s\n%s\nРђРІС‚РѕРјРѕР±РёР»СЊРЅРѕРµ СЂР°РґРёРѕ",
 					str_engine,str_lights,str_doors,str_bonnet,str_boot);
 				case 1: format(source, sizeof(source),
-					"%s\n%s\n%s\n%s\n%s\nАвтомобильное радио\nОтцепить трейлер",
+					"%s\n%s\n%s\n%s\n%s\nРђРІС‚РѕРјРѕР±РёР»СЊРЅРѕРµ СЂР°РґРёРѕ\nРћС‚С†РµРїРёС‚СЊ С‚СЂРµР№Р»РµСЂ",
 					str_engine,str_lights,str_doors,str_bonnet,str_boot);
 			}
-	    	ShowPlayerDialog(playerid, 6, DIALOG_STYLE_LIST, "Управление автомобилем",source,"Выбор","Отмена");
+	    	ShowPlayerDialog(playerid, 6, DIALOG_STYLE_LIST, "РЈРїСЂР°РІР»РµРЅРёРµ Р°РІС‚РѕРјРѕР±РёР»РµРј",source,"Р’С‹Р±РѕСЂ","РћС‚РјРµРЅР°");
 	    }
 	    // Anti Speed Hack
 	    if(newkeys & KEY_FIRE || oldkeys & KEY_FIRE)
@@ -48,11 +48,11 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	        if(Vehicle_Speed(vehicleid) > 270) P[playerid][_p_cheater]++;
 	    }
 	}
-	// Главное меню
+	// Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ
 	/*if(newkeys & KEY_NO)
 	{
 	}*/
-	// Открытие ворот и/или шлагбаумов
+	// РћС‚РєСЂС‹С‚РёРµ РІРѕСЂРѕС‚ Рё/РёР»Рё С€Р»Р°РіР±Р°СѓРјРѕРІ
 	if(newkeys & KEY_CROUCH)
 	{
 		if(IsPlayerInRangeOfPoint(playerid, 15.0, 1286.1700,-1652.1000,16.5500)) {

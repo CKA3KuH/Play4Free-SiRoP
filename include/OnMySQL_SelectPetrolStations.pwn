@@ -19,14 +19,14 @@ public OnMySQL_SelectPetrolStations()
 	    orm_apply_cache(PS[x][_ps_ormid], x);
 
 	    switch(PS[x][ps_owner]) {
-		    case 0: ownername = "Правительство штата";
+		    case 0: ownername = "РџСЂР°РІРёС‚РµР»СЊСЃС‚РІРѕ С€С‚Р°С‚Р°";
 		    default: format(ownername, sizeof(ownername), "UID: %d", PS[x][ps_owner]);
 		}
 		format(string, sizeof(string),
 			"%s\n\
-			Владелец: %s\n\
-			Цистерна: %d из %d литров\n\
-			Цена: $%.2f за 1 литр бензина",
+			Р’Р»Р°РґРµР»РµС†: %s\n\
+			Р¦РёСЃС‚РµСЂРЅР°: %d РёР· %d Р»РёС‚СЂРѕРІ\n\
+			Р¦РµРЅР°: $%.2f Р·Р° 1 Р»РёС‚СЂ Р±РµРЅР·РёРЅР°",
 			PS[x][ps_name],ownername,PS[x][ps_volume],FUEL_TANK_LIMIT,Prices_Fuel);
 		PS[x][_ps_text3d] = CreateDynamic3DTextLabel(string, 0x4682B4FF, PS[x][ps_pos_x],PS[x][ps_pos_y],PS[x][ps_pos_z]+1,35.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
 	}
