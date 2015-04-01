@@ -6,6 +6,8 @@
 #include <streamer>
 #include <whirlpool>
 #include <YSI_Coding\y_timers>
+#include <YSI_Coding\y_va>
+#include <YSI_Data\y_iterate>
 #include <YSI_Server\y_flooding>
 #include <YSI_Storage\y_ini>
 #include <YSI_Visual\y_commands>
