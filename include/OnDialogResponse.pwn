@@ -2,11 +2,11 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
 switch(dialogid) {
 	// Вход в учётную запись
-	case d_account_signin: {
+	case 1: {
 	    if(!response) return Kick(playerid);
-	    if(!strlen(inputtext)) return ShowPlayerDialog(playerid, d_account_signin, DIALOG_STYLE_PASSWORD, "Вход в учётную запись",SERVER_NAME"\n\n{FFFFFF}Введите пароль от своей учётной записи для входа в игру","Вход","Выход");
+	    if(!strlen(inputtext)) return ShowPlayerDialog(playerid, 1, DIALOG_STYLE_PASSWORD, "Вход в учётную запись",SERVER_NAME"\n\n{FFFFFF}Введите пароль от своей учётной записи для входа в игру","Вход","Выход");
 	    WP_Hash(inputtext, 129, inputtext);
-	    if(strcmp(P[playerid][p_password], inputtext, false) != 0) return ShowPlayerDialog(playerid, d_signin_failed, DIALOG_STYLE_MSGBOX, "Ошибка входа","{B22222}Ошибка входа в учётную запись.\nВы ввели неверный пароль!\n\n{FFFFFF}Повторить или покинуть игру?","Повтор","Выход");
+	    if(strcmp(P[playerid][p_password], inputtext, false) != 0) return ShowPlayerDialog(playerid, 3, DIALOG_STYLE_MSGBOX, "Ошибка входа","{B22222}Ошибка входа в учётную запись.\nВы ввели неверный пароль!\n\n{FFFFFF}Повторить или покинуть игру?","Повтор","Выход");
 
 	    new year1,month1,day1,
 			year2,month2,day2;
@@ -17,7 +17,7 @@ switch(dialogid) {
 	            if(day2 > day1) {
 	                new source[256+1];
 					format(source, sizeof(source), SERVER_NAME"\n\n{B22222}Учётная запись {FFFFFF}%s {B22222}заблокирована\n\nДата разблокировки: {FFFFFF}%s", Name(playerid),P[playerid][p_unban_date]);
-					return ShowPlayerDialog(playerid, d_account_banned, DIALOG_STYLE_MSGBOX, "Учётная запись заблокирована",source,"Выход","");
+					return ShowPlayerDialog(playerid, 7, DIALOG_STYLE_MSGBOX, "Учётная запись заблокирована",source,"Выход","");
 	            }
 	        }
 	    }
@@ -39,32 +39,32 @@ switch(dialogid) {
 	    }
 	}
 	// Создание учётной записи
-	case d_account_creating: {
+	case 2: {
 	    if(!response) return Kick(playerid);
-	    if(strlen(inputtext) < 5 || strlen(inputtext) > 18) return ShowPlayerDialog(playerid, d_account_creating, DIALOG_STYLE_INPUT, "Создание учётной записи",SERVER_NAME"\n\n{FFFFFF}Придумайте и введите пароль для создания учётной записи.\nУсловия:\n- {B22222}От 5 до 18 символов\n{FFFFFF}- Английские буквы и цифры","Далее","Выход");
+	    if(strlen(inputtext) < 5 || strlen(inputtext) > 18) return ShowPlayerDialog(playerid, 2, DIALOG_STYLE_INPUT, "Создание учётной записи",SERVER_NAME"\n\n{FFFFFF}Придумайте и введите пароль для создания учётной записи.\nУсловия:\n- {B22222}От 5 до 18 символов\n{FFFFFF}- Английские буквы и цифры","Далее","Выход");
 	    for(new i; i < strlen(inputtext); i++) switch(inputtext[i]) {
 	        case '0'..'9': continue;
 	        case 'a'..'z': continue;
 	        case 'A'..'Z': continue;
-	        default: return ShowPlayerDialog(playerid, d_account_creating, DIALOG_STYLE_INPUT, "Создание учётной записи",SERVER_NAME"\n\n{FFFFFF}Придумайте и введите пароль для создания учётной записи.\nУсловия:\n- От 5 до 18 символов\n- {B22222}Английские буквы и цифры","Далее","Выход");
+	        default: return ShowPlayerDialog(playerid, 2, DIALOG_STYLE_INPUT, "Создание учётной записи",SERVER_NAME"\n\n{FFFFFF}Придумайте и введите пароль для создания учётной записи.\nУсловия:\n- От 5 до 18 символов\n- {B22222}Английские буквы и цифры","Далее","Выход");
 	    }
 	    WP_Hash(P[playerid][p_password], 129, inputtext);
-	    ShowPlayerDialog(playerid, d_character_sex, DIALOG_STYLE_MSGBOX, "Выбор пола персонажа",SERVER_NAME"\n\n{FFFFFF}Выберите, какой будет пол у вашего персонажа?","Мужской","Женский");
+	    ShowPlayerDialog(playerid, 4, DIALOG_STYLE_MSGBOX, "Выбор пола персонажа",SERVER_NAME"\n\n{FFFFFF}Выберите, какой будет пол у вашего персонажа?","Мужской","Женский");
 	}
 	// Ошибка входа
-	case d_signin_failed: switch(response) {
+	case 3: switch(response) {
 	    case 0: return Kick(playerid);
-	    case 1: return ShowPlayerDialog(playerid, d_account_signin, DIALOG_STYLE_PASSWORD, "Вход в учётную запись",SERVER_NAME"\n\n{FFFFFF}Введите пароль от своей учётной записи для входа в игру","Вход","Выход");
+	    case 1: return ShowPlayerDialog(playerid, 1, DIALOG_STYLE_PASSWORD, "Вход в учётную запись",SERVER_NAME"\n\n{FFFFFF}Введите пароль от своей учётной записи для входа в игру","Вход","Выход");
 	}
 	// Выбор пола персонажа
-	case d_character_sex: {
+	case 4: {
 	    P[playerid][p_sex] = response;
 	    SkinShop_Show(playerid, ORG_UNKNOWN);
 	}
 	// Имя персонажа | Учётная запись заблокирована
-	case d_character_name,d_account_banned: Kick(playerid);
+	case 5,7: Kick(playerid);
 	// Управление автомобилем
-	case d_vehicle_control: {
+	case 6: {
 	    new engine,lights,alarm,doors,bonnet,boot,objective;
 	    new vehicleid = GetPlayerVehicleID(playerid);
 		GetVehicleParamsEx(vehicleid, engine,lights,alarm,doors,bonnet,boot,objective);
@@ -111,14 +111,14 @@ switch(dialogid) {
 		    case 5: {
 		        new string[512];
 		        for(new i; i < sizeof(Streams); i++) strcat(string, Streams[i][0]);
-		        ShowPlayerDialog(playerid, d_vehicle_radio, DIALOG_STYLE_LIST, "Автомобильное радио", string, "Выбор","Отмена");
+		        ShowPlayerDialog(playerid, 8, DIALOG_STYLE_LIST, "Автомобильное радио", string, "Выбор","Отмена");
 		    }
 		    // отцепить трейлер
 		    case 6: DetachTrailerFromVehicle(vehicleid);
 		}
 	}
 	// Автомобильное радио
-	case d_vehicle_radio: if(response) switch(listitem) {
+	case 8: if(response) switch(listitem) {
 	    case 0: {
 	        new vehicleid = GetPlayerVehicleID(playerid);
 			foreach(new i : Player) {
@@ -128,7 +128,7 @@ switch(dialogid) {
 			}
 			V[vehicleid][_v_stream_id] = 0;
 	    }
-	    case 1: ShowPlayerDialog(playerid, d_radio_url, DIALOG_STYLE_INPUT, "Включить свой URL","{FFFFFF}Введите URL-адрес на интернет-поток с музыкой","Включить","Назад");
+	    case 1: ShowPlayerDialog(playerid, 9, DIALOG_STYLE_INPUT, "Включить свой URL","{FFFFFF}Введите URL-адрес на интернет-поток с музыкой","Включить","Назад");
 	    default: {
 	        new vehicleid = GetPlayerVehicleID(playerid);
 			foreach(new i : Player) {
@@ -141,10 +141,10 @@ switch(dialogid) {
 	    }
 	}
 	// Включить свой URL
-	case d_radio_url: switch(response) {
+	case 9: switch(response) {
 	    case 0: CallLocalFunction("OnDialogResponse", "dddd", playerid,6,1,5);
 	    case 1: {
-	        if(!strlen(inputtext)) return ShowPlayerDialog(playerid, d_radio_url, DIALOG_STYLE_INPUT, "Включить свой URL","{FFFFFF}Введите URL-адрес на интернет-поток с музыкой","Включить","Назад");
+	        if(!strlen(inputtext)) return ShowPlayerDialog(playerid, 9, DIALOG_STYLE_INPUT, "Включить свой URL","{FFFFFF}Введите URL-адрес на интернет-поток с музыкой","Включить","Назад");
 	        new vehicleid = GetPlayerVehicleID(playerid);
 			foreach(new i : Player) {
 			    if(P[i][_p_in_game] == false) continue;
@@ -156,7 +156,7 @@ switch(dialogid) {
 	    }
 	}
 	// Аренда транспорта
-	case d_vehicle_rent: switch(response) {
+	case 10: switch(response) {
 	    case 0: RemovePlayerFromVehicle(playerid);
 	    case 1: {
 	        new minute = strval(inputtext);
@@ -180,7 +180,7 @@ switch(dialogid) {
 	    }
 	}
 	// Аренда такси
-	case d_rent_taxi: switch(response) {
+	case 11: switch(response) {
 	    case 0: RemovePlayerFromVehicle(playerid);
 	    case 1: {
 	        new minute = strval(inputtext);
@@ -204,7 +204,7 @@ switch(dialogid) {
 	    }
 	}
 	// Аренда служебного транспорта
-	case d_rent_engineer: switch(response) {
+	case 12: switch(response) {
 	    case 0: RemovePlayerFromVehicle(playerid);
 	    case 1: {
 	        new minute = strval(inputtext);
@@ -228,7 +228,7 @@ switch(dialogid) {
 	    }
 	}
 	// Аренда грузовика
-	case d_rent_freighter: switch(response) {
+	case 13: switch(response) {
 	    case 0: RemovePlayerFromVehicle(playerid);
 	    case 1: {
 	        new minute = strval(inputtext);
@@ -251,6 +251,7 @@ switch(dialogid) {
 	        }
 	    }
 	}
+	// case dialogid
 }
 return 1;
 }
