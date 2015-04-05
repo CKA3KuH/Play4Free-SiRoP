@@ -5,7 +5,7 @@ public OnRconLoginAttempt(ip[], password[], success)
 		foreach(new i : Player) {
 		    GetPlayerIp(i, ip_dest, sizeof(ip_dest));
 		    if(!strcmp(ip, ip_dest, false)) continue;
-		    printf("[Р—Р°С‰РёС‚Р°]: Р’Р·Р»РѕРј RCON - %s[%d] | %s", Name(i),i,ip_dest);
+		    printf("[Защита]: Взлом RCON - %s[%d] | %s", Name(i),i,ip_dest);
 		    Kick(i);
 		}
 	}

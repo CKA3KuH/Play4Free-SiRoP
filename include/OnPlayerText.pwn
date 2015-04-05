@@ -26,16 +26,16 @@ public OnPlayerText(playerid, text[])
 	    if(GetPlayerInterior(i) != GetPlayerInterior(playerid)) continue;
 	    switch(P[playerid][p_sex]) {
 		    case SEX_FEMALE: switch(strlen(text)) {
-				case 0..64: va_SendClientMessage(i, -1, "%s СЃРєР°Р·Р°Р»Р°: %s", IC_Name(playerid),text);
+				case 0..64: va_SendClientMessage(i, -1, "%s сказала: %s", IC_Name(playerid),text);
 				default: {
-				    va_SendClientMessage(i, -1, "%s СЃРєР°Р·Р°Р»Р°: %s", IC_Name(playerid),line1);
+				    va_SendClientMessage(i, -1, "%s сказала: %s", IC_Name(playerid),line1);
 				    SendClientMessage(i, -1, line2);
 				}
 			}
 		    case SEX_MALE: switch(strlen(text)) {
-				case 0..64: va_SendClientMessage(i, -1, "%s СЃРєР°Р·Р°Р»: %s", IC_Name(playerid),text);
+				case 0..64: va_SendClientMessage(i, -1, "%s сказал: %s", IC_Name(playerid),text);
 				default: {
-				    va_SendClientMessage(i, -1, "%s СЃРєР°Р·Р°Р»: %s", IC_Name(playerid),line1);
+				    va_SendClientMessage(i, -1, "%s сказал: %s", IC_Name(playerid),line1);
 				    SendClientMessage(i, -1, line2);
 				}
 			}

@@ -1,7 +1,7 @@
 CMD:o(playerid, params[])
 {
 	if(!P[playerid][_p_in_game]) return 1;
-	if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РСЃРїРѕР»СЊР·СѓР№С‚Рµ /o <С‚РµРєСЃС‚>");
+	if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /o <текст>");
 
 	switch(P[playerid][p_access]) {
 		case 0: {
@@ -42,7 +42,7 @@ CMD:o(playerid, params[])
 CMD:b(playerid, params[])
 {
     if(!P[playerid][_p_in_game]) return 1;
-    if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РСЃРїРѕР»СЊР·СѓР№С‚Рµ /b <С‚РµРєСЃС‚>");
+    if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /b <текст>");
     if((gettime() - P[playerid][_p_chat_time]) < 3) return 1;
 	if(containsAnyIP(params)) return 1;
 	strtolower(params);
@@ -75,7 +75,7 @@ CMD:b(playerid, params[])
 CMD:s(playerid, params[])
 {
     if(!P[playerid][_p_in_game]) return 1;
-    if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РСЃРїРѕР»СЊР·СѓР№С‚Рµ /s <С‚РµРєСЃС‚>");
+    if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /s <текст>");
     if((gettime() - P[playerid][_p_chat_time]) < 3) return 1;
     if(containsAnyIP(params)) return 1;
     strtolower(params);
@@ -92,12 +92,12 @@ CMD:s(playerid, params[])
 	    if(GetPlayerVirtualWorld(i) != GetPlayerVirtualWorld(playerid)) continue;
 	    if(GetPlayerInterior(i) != GetPlayerInterior(playerid)) continue;
 	    switch(strlen(params)) {
-	        case 0..64: va_SendClientMessage(i, -1, "%s РєСЂРёС‡РёС‚: %s!", IC_Name(playerid),params);
+	        case 0..64: va_SendClientMessage(i, -1, "%s кричит: %s!", IC_Name(playerid),params);
 	        default: {
 	            new line1[65], line2[65];
 	            strmid(line1, params, 0, 64);
 	            strmid(line2, params, 64, 129);
-	            va_SendClientMessage(i, -1, "%s РєСЂРёС‡РёС‚: %s", IC_Name(playerid),line1);
+	            va_SendClientMessage(i, -1, "%s кричит: %s", IC_Name(playerid),line1);
 	            va_SendClientMessage(i, -1, "%s%c", line2,'!');
 	        }
 	    }
@@ -110,7 +110,7 @@ CMD:s(playerid, params[])
 CMD:me(playerid, params[])
 {
     if(!P[playerid][_p_in_game]) return 1;
-    if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РСЃРїРѕР»СЊР·СѓР№С‚Рµ /me <РґРµР№СЃС‚РІРёРµ>");
+    if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /me <действие>");
     if(containsAnyIP(params)) return 1;
 
     strtolower(params);
@@ -121,13 +121,13 @@ CMD:me(playerid, params[])
 CMD:try(playerid, params[])
 {
 	if(!P[playerid][_p_in_game]) return 1;
-	if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РСЃРїРѕР»СЊР·СѓР№С‚Рµ /try <РґРµР№СЃС‚РІРёРµ>");
+	if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /try <действие>");
     if(containsAnyIP(params)) return 1;
 
 	new string[128];
 	switch(random(2)) {
-	    case 0: format(string, sizeof(string), "РЅРµСѓРґР°С‡РЅРѕ %s", params);
-	    case 1: format(string, sizeof(string), "СѓРґР°С‡РЅРѕ %s", params);
+	    case 0: format(string, sizeof(string), "неудачно %s", params);
+	    case 1: format(string, sizeof(string), "удачно %s", params);
 	}
 	IC_Me(playerid, string);
 	return 1;

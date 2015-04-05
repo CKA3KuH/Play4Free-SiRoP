@@ -38,15 +38,15 @@ CMD:fill(playerid, params[])
 
 		new volume, Float: amount;
 		new vehicleid = GetPlayerVehicleID(playerid);
-		if(sscanf(params, "i", volume)) return SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РСЃРїРѕР»СЊР·СѓР№С‚Рµ /fill <РѕР±СЉС‘Рј>");
-		if(volume <= 0 || volume > Vehicle_GetMaxFuel(GetVehicleModel(vehicleid))) return va_SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РћР±СЉРµРј Р·Р°РїСЂР°РІР»СЏРµРјРѕРіРѕ РЅРµ РјРѕР¶РµС‚ РїСЂРµРІС‹С€Р°С‚СЊ %d Р»РёС‚СЂРѕРІ", Vehicle_GetMaxFuel(GetVehicleModel(vehicleid)));
-		if((volume + V[vehicleid][v_fuel]) > Vehicle_GetMaxFuel(GetVehicleModel(vehicleid))) return va_SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РћР±СЉРµРј Р·Р°РїСЂР°РІР»СЏРµРјРѕРіРѕ РЅРµ РјРѕР¶РµС‚ РїСЂРµРІС‹С€Р°С‚СЊ %d Р»РёС‚СЂРѕРІ", Vehicle_GetMaxFuel(GetVehicleModel(vehicleid)));
+		if(sscanf(params, "i", volume)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /fill <объём>");
+		if(volume <= 0 || volume > Vehicle_GetMaxFuel(GetVehicleModel(vehicleid))) return va_SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Объем заправляемого не может превышать %d литров", Vehicle_GetMaxFuel(GetVehicleModel(vehicleid)));
+		if((volume + V[vehicleid][v_fuel]) > Vehicle_GetMaxFuel(GetVehicleModel(vehicleid))) return va_SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Объем заправляемого не может превышать %d литров", Vehicle_GetMaxFuel(GetVehicleModel(vehicleid)));
 		amount = volume * Prices_Fuel;
 		Cash_Give(playerid, -amount);
 		V[vehicleid][v_fuel] += volume;
 		PS[i][ps_volume] -= volume;
 		PS[i][ps_profit] += amount;
-		va_SendClientMessage(playerid, -1, "РђРІС‚РѕРјРѕР±РёР»СЊ Р·Р°РїСЂР°РІР»РµРЅ РЅР° %d Р»РёС‚СЂРѕРІ Р·Р° $%.2f", volume,amount);
+		va_SendClientMessage(playerid, -1, "Автомобиль заправлен на %d литров за $%.2f", volume,amount);
     }
 	return 1;
 }

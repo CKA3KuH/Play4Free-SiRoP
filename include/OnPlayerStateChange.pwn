@@ -12,15 +12,15 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 	        if(vehicleid != V_TAXI[i]) continue;
 	        if(V_TAXI_OWNER[i] != 0) break;
 	        if(Vehicle_IsPlayerWithLicense(GetVehicleModel(vehicleid), playerid) == 0) {
-                SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РЈ РІР°СЃ РЅРµС‚ РѕРїС‹С‚Р° Рё Р»РёС†РµРЅР·РёРё СѓРїСЂР°РІР»РµРЅРёСЏ РґР°РЅРЅС‹Рј С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рј СЃСЂРµРґСЃС‚РІРѕРј!");
+                SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}У вас нет опыта и лицензии управления данным транспортным средством!");
                 break;
             }
             new source[128];
             format(source, sizeof(source),
-				"{FFFFFF}Р”Р°РЅРЅС‹Р№ Р°РІС‚РѕРјРѕР±РёР»СЊ С‚Р°РєСЃРё СЃРґР°С‘С‚СЃСЏ РІ Р°СЂРµРЅРґСѓ.\n\n\
-				Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ Р°СЂРµРЅРґС‹. РћС‚ 1 РјРёРЅСѓС‚С‹ ($%.2f) РґРѕ 240 РјРёРЅСѓС‚",
+				"{FFFFFF}Данный автомобиль такси сдаётся в аренду.\n\n\
+				Введите время аренды. От 1 минуты ($%.2f) до 240 минут",
 				Prices_RentCar);
-            ShowPlayerDialog(playerid, 11, DIALOG_STYLE_INPUT, "РђСЂРµРЅРґР° С‚Р°РєСЃРё",source,"РђСЂРµРЅРґР°","Р’С‹Р№С‚Рё");
+            ShowPlayerDialog(playerid, 11, DIALOG_STYLE_INPUT, "Аренда такси",source,"Аренда","Выйти");
             break;
 	    }
 	    for(new i; i < sizeof(V_ENGINEER); i++) {
@@ -28,15 +28,15 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 	        if(vehicleid != V_ENGINEER[i]) continue;
 	        if(V_ENGINEER_OWNER[i] != 0) break;
 	        if(Vehicle_IsPlayerWithLicense(GetVehicleModel(vehicleid), playerid) == 0) {
-                SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РЈ РІР°СЃ РЅРµС‚ РѕРїС‹С‚Р° Рё Р»РёС†РµРЅР·РёРё СѓРїСЂР°РІР»РµРЅРёСЏ РґР°РЅРЅС‹Рј С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рј СЃСЂРµРґСЃС‚РІРѕРј!");
+                SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}У вас нет опыта и лицензии управления данным транспортным средством!");
                 break;
             }
             new source[128];
             format(source, sizeof(source),
-				"{FFFFFF}Р”Р°РЅРЅС‹Р№ Р°РІС‚РѕРјРѕР±РёР»СЊ РёРЅР¶РµРЅРµСЂРѕРІ СЃРґР°С‘С‚СЃСЏ РІ Р°СЂРµРЅРґСѓ.\n\n\
-				Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ Р°СЂРµРЅРґС‹. РћС‚ 1 РјРёРЅСѓС‚С‹ ($%.2f) РґРѕ 240 РјРёРЅСѓС‚",
+				"{FFFFFF}Данный автомобиль инженеров сдаётся в аренду.\n\n\
+				Введите время аренды. От 1 минуты ($%.2f) до 240 минут",
 				Prices_RentCar);
-            ShowPlayerDialog(playerid, 12, DIALOG_STYLE_INPUT, "РђСЂРµРЅРґР° СЃР»СѓР¶РµР±РЅРѕРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚Р°",source,"РђСЂРµРЅРґР°","Р’С‹Р№С‚Рё");
+            ShowPlayerDialog(playerid, 12, DIALOG_STYLE_INPUT, "Аренда служебного транспорта",source,"Аренда","Выйти");
             break;
 	    }
 	    for(new i; i < sizeof(V_FREIGHTER); i++) {
@@ -44,30 +44,30 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 	        if(vehicleid != V_FREIGHTER[i]) continue;
 	        if(V_FREIGHTER_OWNER[i] != 0) break;
 	        if(Vehicle_IsPlayerWithLicense(GetVehicleModel(vehicleid), playerid) == 0) {
-                SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РЈ РІР°СЃ РЅРµС‚ РѕРїС‹С‚Р° Рё Р»РёС†РµРЅР·РёРё СѓРїСЂР°РІР»РµРЅРёСЏ РґР°РЅРЅС‹Рј С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рј СЃСЂРµРґСЃС‚РІРѕРј!");
+                SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}У вас нет опыта и лицензии управления данным транспортным средством!");
                 break;
             }
             new source[128];
             format(source, sizeof(source),
-				"{FFFFFF}Р”Р°РЅРЅС‹Р№ РіСЂСѓР·РѕРІРѕР№ Р°РІС‚РѕРјРѕР±РёР»СЊ СЃРґР°С‘С‚СЃСЏ РІ Р°СЂРµРЅРґСѓ.\n\n\
-				Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ Р°СЂРµРЅРґС‹. РћС‚ 1 РјРёРЅСѓС‚С‹ ($%.2f) РґРѕ 240 РјРёРЅСѓС‚",
+				"{FFFFFF}Данный грузовой автомобиль сдаётся в аренду.\n\n\
+				Введите время аренды. От 1 минуты ($%.2f) до 240 минут",
 				Prices_RentCar);
-            ShowPlayerDialog(playerid, 13, DIALOG_STYLE_INPUT, "РђСЂРµРЅРґР° РіСЂСѓР·РѕРІРёРєР°",source,"РђСЂРµРЅРґР°","Р’С‹Р№С‚Рё");
+            ShowPlayerDialog(playerid, 13, DIALOG_STYLE_INPUT, "Аренда грузовика",source,"Аренда","Выйти");
             break;
 	    }
 	    for(new i; i < sizeof(V_RENT); i++) {
 	        if(vehicleid != V_RENT[i]) continue;
 	        if(V_RENT_OWNER[i] != 0) break;
 	        if(Vehicle_IsPlayerWithLicense(GetVehicleModel(vehicleid), playerid) == 0) {
-                SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РЈ РІР°СЃ РЅРµС‚ РѕРїС‹С‚Р° Рё Р»РёС†РµРЅР·РёРё СѓРїСЂР°РІР»РµРЅРёСЏ РґР°РЅРЅС‹Рј С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рј СЃСЂРµРґСЃС‚РІРѕРј!");
+                SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}У вас нет опыта и лицензии управления данным транспортным средством!");
                 break;
             }
             new source[128];
             format(source, sizeof(source),
-				"{FFFFFF}Р”Р°РЅРЅРѕРµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРµ СЃСЂРµРґСЃС‚РІРѕ СЃРґР°С‘С‚СЃСЏ РІ Р°СЂРµРЅРґСѓ.\n\n\
-				Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ Р°СЂРµРЅРґС‹. РћС‚ 1 РјРёРЅСѓС‚С‹ ($%.2f) РґРѕ 240 РјРёРЅСѓС‚",
+				"{FFFFFF}Данное транспортное средство сдаётся в аренду.\n\n\
+				Введите время аренды. От 1 минуты ($%.2f) до 240 минут",
 				Prices_RentCar);
-            ShowPlayerDialog(playerid, 10, DIALOG_STYLE_INPUT, "РђСЂРµРЅРґР° С‚СЂР°РЅСЃРїРѕСЂС‚Р°",source,"РђСЂРµРЅРґР°","Р’С‹Р№С‚Рё");
+            ShowPlayerDialog(playerid, 10, DIALOG_STYLE_INPUT, "Аренда транспорта",source,"Аренда","Выйти");
             break;
 	    }
 	}

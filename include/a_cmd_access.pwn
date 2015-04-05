@@ -5,7 +5,7 @@ CMD:car(playerid, params[])
 
 	new model, color1 = (-1), color2 = (-1);
 	sscanf(params, "iii", model,color1,color2);
-	if(isnull(params)) return SendClientMessage(playerid, 0xB22222FF, "[РЎРїСЂР°РІРєР°]: {FFFFFF}РСЃРїРѕР»СЊР·СѓР№С‚Рµ /car <РјРѕРґРµР»СЊ> [С†РІРµС‚1] [С†РІРµС‚2]");
+	if(isnull(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /car <модель> [цвет1] [цвет2]");
 
 	new Float: x, Float: y, Float: z, Float: a;
 	GetPlayerPos(playerid, x,y,z);
