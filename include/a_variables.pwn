@@ -7,6 +7,22 @@
 #define MOVE_BARRIER_SPEED  	0.2
 
 enum {
+	d_account_signin,		
+	d_account_creating,		
+	d_signin_failed,		
+	d_character_sex,		
+	d_character_name,		
+	d_vehicle_control,		
+	d_account_banned,		
+	d_vehicle_radio,		
+	d_radio_url,		
+	d_vehicle_rent,		
+	d_rent_taxi,		
+	d_rent_engineer,		
+	d_rent_freighter		
+}
+
+enum {
 	ORG_UNKNOWN,
 	ORG_GOVERNMENT,
 	ORG_FBI,
