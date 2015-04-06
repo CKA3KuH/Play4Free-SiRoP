@@ -7,6 +7,7 @@ public OnMySQL_InsertAccount(playerid)
 	P[playerid][_p_in_game] = true;
 	TogglePlayerSpectating(playerid, 0);
 	SetSpawnInfo(playerid, 0, P[playerid][p_skin], 1642.4329,-2239.0205,13.4967,180.0, 0,0,0,0,0,0);
+	Command_SetAccessToCommands(playerid);
 	P[playerid][p_health] = 100;
 	SendClientMessage(playerid, 0xB9C9BFFF, "Создание учётной записи успешно выполнено.");
     SendClientMessage(playerid, 0xB9C9BFFF, "Добро пожаловать, в игру на "SERVER_NAME);

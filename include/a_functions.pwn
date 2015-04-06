@@ -1,3 +1,19 @@
+stock Command_SetAccessToCommands(playerid)
+{
+	if(P[playerid][p_access] >= 0) {
+		Command_SetPlayerNamed("lock", playerid, true);
+		Command_SetPlayerNamed("fill", playerid, true);
+		Command_SetPlayerNamed("o", playerid, true);
+		Command_SetPlayerNamed("b", playerid, true);
+		Command_SetPlayerNamed("s", playerid, true);
+		Command_SetPlayerNamed("me", playerid, true);
+		Command_SetPlayerNamed("try", playerid, true);
+	} else if(P[playerid][p_access] >= 1) {
+		Command_SetPlayerNamed("car", playerid, true);
+		Command_SetPlayerNamed("repair", playerid, true);
+	}
+}
+
 stock Get_AccessName(playerid)
 {
 	new dest[15];

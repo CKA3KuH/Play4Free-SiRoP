@@ -1,7 +1,6 @@
 CMD:lock(playerid, params[])
 {
-    if(!P[playerid][_p_in_game]) return 1;
-    if(GetPlayerState(playerid) != PLAYER_STATE_ONFOOT) return 1;
+	if(GetPlayerState(playerid) != PLAYER_STATE_ONFOOT) return 1;
 
     new Float: x, Float: y, Float: z;
 	GetPlayerPos(playerid, x,y,z);
@@ -30,8 +29,7 @@ CMD:lock(playerid, params[])
 
 CMD:fill(playerid, params[])
 {
-    if(!P[playerid][_p_in_game]) return 1;
-    if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER) return 1;
+	if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER) return 1;
 
     for(new i; i < sizeof(PS); i++) {
 		if(!IsPlayerInRangeOfPoint(playerid, 5.0, PS[i][ps_pos_x],PS[i][ps_pos_y],PS[i][ps_pos_z])) continue;

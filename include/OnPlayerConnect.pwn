@@ -1,5 +1,8 @@
 public OnPlayerConnect(playerid)
 {
+	for(new a; a < Command_GetPlayerCommandCount(playerid); a++)
+		Command_SetPlayer(a, playerid, false);
+
 	TogglePlayerSpectating(playerid, 1);
 	GetPlayerName(playerid, P[playerid][p_name], MAX_PLAYER_NAME);
 	if(!Name_IsValid(P[playerid][p_name])) return ShowPlayerDialog(playerid, d_character_name, DIALOG_STYLE_MSGBOX, "Имя персонажа",SERVER_NAME"\n\n{B22222}Имя вашего персонажа несоответствует нашим условиям.\nПравильный формат:\n\n\t{FFFFFF}Имя_Фамилия (на английском)","Выход","");

@@ -1,7 +1,6 @@
 CMD:o(playerid, params[])
 {
-	if(!P[playerid][_p_in_game]) return 1;
-	if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /o <текст>");
+	if(isnull(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /o <текст>");
 
 	switch(P[playerid][p_access]) {
 		case 0: {
@@ -41,9 +40,8 @@ CMD:o(playerid, params[])
 
 CMD:b(playerid, params[])
 {
-    if(!P[playerid][_p_in_game]) return 1;
-    if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /b <текст>");
-    if((gettime() - P[playerid][_p_chat_time]) < 3) return 1;
+	if(isnull(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /b <текст>");
+	if((gettime() - P[playerid][_p_chat_time]) < 3) return 1;
 	if(containsAnyIP(params)) return 1;
 	strtolower(params);
 	if(strlen(P[playerid][_p_chat_msg]) == strlen(params)) {
@@ -74,11 +72,10 @@ CMD:b(playerid, params[])
 
 CMD:s(playerid, params[])
 {
-    if(!P[playerid][_p_in_game]) return 1;
-    if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /s <текст>");
-    if((gettime() - P[playerid][_p_chat_time]) < 3) return 1;
-    if(containsAnyIP(params)) return 1;
-    strtolower(params);
+	if(isnull(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /s <текст>");
+	if((gettime() - P[playerid][_p_chat_time]) < 3) return 1;
+	if(containsAnyIP(params)) return 1;
+	strtolower(params);
 	if(strlen(P[playerid][_p_chat_msg]) == strlen(params)) {
 		if(strcmp(P[playerid][_p_chat_msg], params, true) == 0) return 1;
 	}
@@ -109,20 +106,18 @@ CMD:s(playerid, params[])
 
 CMD:me(playerid, params[])
 {
-    if(!P[playerid][_p_in_game]) return 1;
-    if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /me <действие>");
-    if(containsAnyIP(params)) return 1;
+	if(isnull(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /me <действие>");
+	if(containsAnyIP(params)) return 1;
 
-    strtolower(params);
+	strtolower(params);
 	IC_Me(playerid, params);
 	return 1;
 }
 
 CMD:try(playerid, params[])
 {
-	if(!P[playerid][_p_in_game]) return 1;
-	if(!strlen(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /try <действие>");
-    if(containsAnyIP(params)) return 1;
+	if(isnull(params)) return SendClientMessage(playerid, 0xB22222FF, "[Справка]: {FFFFFF}Используйте /try <действие>");
+	if(containsAnyIP(params)) return 1;
 
 	new string[128];
 	switch(random(2)) {
