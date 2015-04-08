@@ -94,7 +94,7 @@ CMD:s(playerid, params[])
 			strmid(line1, params, 0, pos);
 			strmid(line2, params, pos, strlen(params));
 			va_SendClientMessage(i, -1, "%s кричит: %s", IC_Name(playerid),line1);
-			SendClientMessage(i, -1, line2"!");
+			va_SendClientMessage(i, -1, "%s%c", line2,'!');
 		} else va_SendClientMessage(i, -1, "%s кричит: %s!", IC_Name(playerid),params);
 	}
 	format(P[playerid][_p_chat_msg], 128, params);
