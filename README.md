@@ -7,9 +7,9 @@
   * Динамические настройки (папка scriptfiles)
   * Валюта - Доллар и Центы
 * Инструменты разработчика:
-	* Командный процессор YCMD ([y_commands](https://github.com/Y-Less/YSI-Includes/tree/YSI.tl))
-	* Операции с __*.ini__ файлами для динамических настроек ([y_ini](https://github.com/Y-Less/YSI-Includes/tree/YSI.tl))
-	* Форматированные сообщения без лишних проблем ([y_va](https://github.com/Y-Less/YSI-Includes/tree/YSI.tl))<br/>Пример: `va_SendClientMessage(playerid, 0xFFFFFFFF, "Привет, %s!", playername);`
-	* Расширенные операции с таймерами ([y_timers](https://github.com/Y-Less/YSI-Includes/tree/YSI.tl))
-	* И другие возможности доступные из [YSI 4.0](https://github.com/Y-Less/YSI-Includes/tree/YSI.tl)
+	* Командный процессор YCMD ([y_commands](https://github.com/Misiur/YSI-Includes))
+	* Операции с __*.ini__ файлами для динамических настроек ([y_ini](https://github.com/Misiur/YSI-Includes))
+	* Форматированные сообщения без лишних проблем ([y_va](https://github.com/Misiur/YSI-Includes))<br/>Пример: `va_SendClientMessage(playerid, 0xFFFFFFFF, "Привет, %s!", playername);`
+	* Расширенные операции с таймерами ([y_timers](https://github.com/Misiur/YSI-Includes))
+	* И другие возможности доступные из [YSI 4.0](https://github.com/Misiur/YSI-Includes)
 	* Модуль [Streamer](https://github.com/samp-incognito/samp-streamer-plugin) для увеличения количества объектов, иконок, пикапов и т.д.
