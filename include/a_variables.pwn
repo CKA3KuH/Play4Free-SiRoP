@@ -115,8 +115,6 @@ new P[MAX_PLAYERS][E_PLAYER_DATA];
 new V[MAX_VEHICLES][E_VEHICLE_DATA];
 new PS[16][E_PETROL_STATIONS_DATA];
 
-new Iterator: Vehicle<MAX_VEHICLES>;
-
 new Text: skinshop_text,
 	Menu: skinshop_menu;
 
@@ -223,8 +221,8 @@ new female_skins[][] = {
 };
 
 new Streams[][][] = {
-{"Отключить музыку\n", ""},
-{"Включить свой URL\n", ""},
+{"ГЋГІГЄГ«ГѕГ·ГЁГІГј Г¬ГіГ§Г»ГЄГі\n", ""},
+{"Г‚ГЄГ«ГѕГ·ГЁГІГј Г±ГўГ®Г© URL\n", ""},
 {"Europa Plus HD\n", "http://ep2561.streamr.ru:8052/europaplus256.mp3"},
 {"NERadio House & Trancel\n", "http://fire1.neradio.com/;"},
 {"Dubplate.fm - Drum & Bass\n", "http://sc2.dubplate.fm:5000/DnB/192"},
